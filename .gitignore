@@ -5,4 +5,8 @@
 /.idea/libraries
 .DS_Store
 /build
+/app/build
 /captures
+*.jks
+*.keystore
+keystore.properties

@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Piano Lessons</string>
+    <string name="rotate_landscape_hint">This screen works best in landscape. Please rotate your device.</string>
+    <string name="recording_audio">Recording Audio</string>
+    <string name="recording_failed">Could not start recording</string>
+    <string name="recording_missing">No recording found</string>
+    <string name="record_permission_denied">Microphone permission is needed to record</string>
+    <string name="record_stop">Stop</string>
 </resources>

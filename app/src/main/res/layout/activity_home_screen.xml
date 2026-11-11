@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.emerson.myapplication.home_screen"
+    tools:context="com.emerson.piano.home_screen"
     android:background="@drawable/images9">
 
     <Button
@@ -20,7 +20,7 @@
         android:background="@drawable/brown_image1"
         android:textSize="25sp"
         android:textColor="#ecd254"
-        android:layout_above="@+id/button"
+        android:layout_above="@+id/free_style"
         android:layout_alignLeft="@+id/games"
         android:layout_alignStart="@+id/games" />
 
@@ -39,8 +39,7 @@
         android:background="@drawable/brown_image1"
         android:padding="15dp"
         android:layout_marginTop="10dp"
-        android:typeface="sans"
-        android:id="@+id/button" />
+        android:typeface="sans" />
 
     <Button
         android:layout_width="180dp"

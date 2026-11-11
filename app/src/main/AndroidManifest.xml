@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.emerson.myapplication">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:label="@string/app_name"
         android:screenOrientation="landscape"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:enableOnBackInvokedCallback="true">
         <activity
             android:name=".MainActivity"
+            android:exported="false"
             android:label="@string/app_name"
             android:screenOrientation="landscape" />
         <activity
             android:name=".home_screen"
+            android:exported="true"
             android:label="@string/app_name"
             android:screenOrientation="landscape">
             <intent-filter>
@@ -28,39 +30,59 @@
         </activity>
         <activity
             android:name=".FreeStyleActivity"
+            android:exported="false"
             android:screenOrientation="landscape" />
         <activity
             android:name=".SongsActivity"
+            android:exported="false"
             android:screenOrientation="userLandscape" />
         <activity
             android:name=".LessonSelectorActivity"
+            android:exported="false"
             android:screenOrientation="landscape" />
         <activity
             android:name=".Lesson_1Activity"
+            android:exported="false"
             android:screenOrientation="landscape" />
         <activity
             android:name=".Lesson_2Activity"
+            android:exported="false"
             android:screenOrientation="landscape" />
         <activity
             android:name=".Lesson_4Activity"
+            android:exported="false"
             android:screenOrientation="landscape" />
         <activity
             android:name=".Lesson_3Activity"
+            android:exported="false"
             android:screenOrientation="landscape" />
         <activity
             android:name=".Lesson_5Activity"
+            android:exported="false"
             android:screenOrientation="landscape" />
         <activity
             android:name=".GamesActivity"
+            android:exported="false"
             android:screenOrientation="landscape" />
         <activity
             android:name=".NameThatNoteActivity"
+            android:exported="false"
             android:screenOrientation="landscape" />
-        <activity android:name=".WordMatchActivity" />
-        <activity android:name=".NoteMathsActivity" />
-        <activity android:name=".IdentifyNoteActivity" />
-        <activity android:name=".ScoresActivity" />
-        <activity android:name=".Lesson2Game"></activity>
+        <activity
+            android:name=".WordMatchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NoteMathsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".IdentifyNoteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ScoresActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Lesson2Game"
+            android:exported="false" />
     </application>
 
 </manifest>
