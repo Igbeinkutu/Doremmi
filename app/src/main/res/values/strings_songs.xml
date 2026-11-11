@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="composer_bach">J. S. Bach</string>
+    <string name="composer_beethoven">Ludwig van Beethoven</string>
+    <string name="composer_brahms">Johannes Brahms</string>
+    <string name="composer_debussy">Claude Debussy</string>
+    <string name="composer_grieg">Edvard Grieg</string>
+    <string name="composer_handel">George Frideric Handel</string>
+    <string name="composer_haydn">Joseph Haydn</string>
+    <string name="composer_joplin">Scott Joplin</string>
+    <string name="composer_mozart">Wolfgang Amadeus Mozart</string>
+    <string name="composer_pachelbel">Johann Pachelbel</string>
+    <string name="composer_schumann">Robert Schumann</string>
+    <string name="composer_strauss">Johann Strauss II</string>
+    <string name="composer_tchaikovsky">Pyotr Ilyich Tchaikovsky</string>
+    <string name="composer_wagner">Richard Wagner</string>
+    <string name="composer_piano_solo">Piano solo</string>
+
+    <string name="song_alla_turca">Rondo alla Turca</string>
+    <string name="song_arabesque1">Arabesque No. 1</string>
+    <string name="song_autumn">Autumn</string>
+    <string name="song_autumn_arrangement">Autumn (piano arrangement)</string>
+    <string name="song_minuet_in_g">Minuet in G</string>
+    <string name="song_ode_to_joy">Ode to Joy</string>
+    <string name="song_prelude_c">Prelude in C (Well-Tempered Clavier I)</string>
+    <string name="song_brahms_lullaby">Lullaby (Wiegenlied)</string>
+    <string name="song_canon_in_d">Canon in D</string>
+    <string name="song_fur_elise">Für Elise</string>
+    <string name="song_arietta">Arietta, Op. 12 No. 1</string>
+    <string name="song_hornpipe">Hornpipe (Water Music)</string>
+    <string name="song_haydn_sonata">Piano Sonata No. 31, 1st movement</string>
+    <string name="song_minuet_k2">Minuet in F, K. 2</string>
+    <string name="song_sonata_k333">Piano Sonata K. 333, 1st movement</string>
+    <string name="song_symphony40">Symphony No. 40, 1st movement</string>
+    <string name="song_notebook_minuet4">Minuet (Notebook for Anna Magdalena, No. 4)</string>
+    <string name="song_notebook_minuet7">Minuet (Notebook for Anna Magdalena, No. 7)</string>
+    <string name="song_notebook_march_beethoven">March (Notebook No. 16)</string>
+    <string name="song_notebook_march_bach">March (Notebook for Anna Magdalena, No. 16)</string>
+    <string name="song_pachelbel_arranged">Canon (arranged)</string>
+    <string name="song_traumerei">Träumerei</string>
+    <string name="song_peacherine">Peacherine Rag</string>
+    <string name="song_sonata_in_c">Sonata in C</string>
+    <string name="song_sugar_plum">Dance of the Sugar Plum Fairy</string>
+    <string name="song_blue_danube">The Blue Danube</string>
+    <string name="song_bridal_chorus">Bridal Chorus</string>
+</resources>

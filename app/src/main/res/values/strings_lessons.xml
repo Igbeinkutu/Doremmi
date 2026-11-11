@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="lesson1_title">Introduction to the piano</string>
+    <string name="lesson1_desc">White and black keys, octaves, note names, sharps and flats</string>
+    <string name="lesson2_title">Fingerings and rudiments</string>
+    <string name="lesson2_desc">Finger numbers, the staff, clefs and your first tunes</string>
+    <string name="lesson3_title">The bass staff</string>
+    <string name="lesson3_desc">Bass clef notes, left-hand playing and the grand staff</string>
+    <string name="lesson4_title">Notes and time</string>
+    <string name="lesson4_desc">Note values, bar lines and time signatures</string>
+    <string name="lesson5_title">Chords</string>
+    <string name="lesson5_desc">Coming soon</string>
+
+    <!-- Lesson 1 -->
+    <string name="l1_s1">Lesson 1: Introduction to the piano!</string>
+    <string name="l1_s2">The piano consists of white and black keys!</string>
+    <string name="l1_s3">The black keys are in sets of twos and threes, as shown on the piano.</string>
+    <string name="l1_s4">This pattern of black keys repeats as you go up and down the piano. Use the − and + buttons above the piano to move to lower or higher octaves.</string>
+    <string name="l1_s5">Similarly, a set of eight white keys repeats.</string>
+    <string name="l1_s6">These sets of eight keys are called octaves.</string>
+    <string name="l1_s7">The white keys are named after the first seven letters of the alphabet, namely A, B, C, D, E, F, G.</string>
+    <string name="l1_s8">C is to the left of the two black keys.</string>
+    <string name="l1_s9">The white key to the right of C is D.</string>
+    <string name="l1_s10">The white key after D is E.</string>
+    <string name="l1_s11">The white key after E is F.</string>
+    <string name="l1_s12">The white key after F is G.</string>
+    <string name="l1_s13">The white key after G is A.</string>
+    <string name="l1_s14">The white key after A is B.</string>
+    <string name="l1_s15">The white key after B is C! And so it repeats.</string>
+    <string name="l1_s16">The keys towards the right of the piano sound higher.</string>
+    <string name="l1_s17">The keys towards the left of the piano sound lower.</string>
+    <string name="l1_s18">Accidentals and names of the black notes:</string>
+    <string name="l1_s19">From one key to the nearest key is called a semitone.</string>
+    <string name="l1_s20">The semitone to the right of a key is described by a sharp (♯).</string>
+    <string name="l1_s21">A sharp raises a key/note one semitone higher.</string>
+    <string name="l1_s22">The semitone to the left of a key is called a flat (♭).</string>
+    <string name="l1_s23">A flat (♭) lowers a note/key by one semitone.</string>
+    <string name="l1_s24">The white keys are called naturals (♮).</string>
+    <string name="l1_s25">Names of the black keys:</string>
+    <string name="l1_s26">The black keys are named relative to the white keys a semitone away from them.</string>
+    <string name="l1_s27">The black key a semitone to the right of C is called C sharp (C♯).</string>
+    <string name="l1_s28">It is also called D flat (D♭) because it is a semitone to the left of D.</string>
+    <string name="l1_s29">The black key before E is called E flat (E♭) because it is a semitone to the left of E.</string>
+    <string name="l1_s30">The rest of the black keys are named in a similar fashion, relative to the white keys a semitone away from them.</string>
+    <string name="l1_img_c_major_scale">The C major scale on the piano keyboard</string>
+    <string name="l1_s32">Sitting and hand position:</string>
+    <string name="l1_s33">Sit upright at the middle of the piano and keep your fingers slightly curved.</string>
+    <string name="l1_img_sitting">Correct sitting posture and curved finger position</string>
+
+    <!-- Lesson 2 -->
+    <string name="l2_s1">Lesson 2: Fingerings and rudiments of music</string>
+    <string name="l2_img_fingering">Finger numbers for both hands: thumbs are 1, little fingers are 5</string>
+    <string name="l2_img_pentascale">The C five-finger position</string>
+    <string name="l2_s4">Play the following keys with the correct fingerings.</string>
+    <string name="l2_img_right_hand">Right hand: play C, D, E, F, G with fingers 1 to 5</string>
+    <string name="l2_s6">Now play with the left hand (LH). The keyboard moves down to C3 for you.</string>
+    <string name="l2_img_left_hand">Left hand: play C, D, E, F, G with fingers 5 to 1</string>
+    <string name="l2_s8">Rudiments: musical sounds are written using characters called notes.</string>
+    <string name="l2_s9">These notes are named after the first seven letters of the alphabet, namely A, B, C, D, E, F, G.</string>
+    <string name="l2_s10">The notes are placed on what is called a staff or stave.</string>
+    <string name="l2_s11">The staff consists of five lines and four spaces.</string>
+    <string name="l2_notation_staff">An empty staff with five lines and four spaces</string>
+    <string name="l2_s13">These lines and spaces are counted from bottom to top.</string>
+    <string name="l2_s14">The names of the lines and spaces of the staff are determined by what is termed a clef.</string>
+    <string name="l2_s15">There are two clefs required for the piano.</string>
+    <string name="l2_s16">1. The Treble or G clef</string>
+    <string name="l2_notation_treble">A staff with a treble clef</string>
+    <string name="l2_s18">2. The Bass or F clef</string>
+    <string name="l2_notation_bass">A staff with a bass clef</string>
+    <string name="l2_s20">The Treble or G clef is drawn from the second line of the staff. The second line is thus named G.</string>
+    <string name="l2_s21">The names of the treble staff</string>
+    <string name="l2_img_treble_names">Treble staff with the names of each line and space</string>
+    <string name="l2_s23">These acronyms can help you remember the names of the treble notes.</string>
+    <string name="l2_s24">Lines: Every Good Boy Does Fine</string>
+    <string name="l2_s25">Spaces: F A C E</string>
+    <string name="l2_s26">Ledger lines:</string>
+    <string name="l2_s27">These are short horizontal lines added to extend the staff.</string>
+    <string name="l2_img_ledger">Notes written on ledger lines above and below the staff</string>
+    <string name="l2_s29">The first ledger line below the treble staff is known as middle C.</string>
+    <string name="l2_s30">Middle C is the C in the middle of the piano. It divides the piano into two halves.</string>
+    <string name="l2_s31">The treble staff is usually played with the right hand.</string>
+    <string name="l2_s32">Play the following notes on the piano. Remember to use the correct fingerings.</string>
+    <string name="l2_notation_song1">C D E, C D E, I can play</string>
+    <string name="l2_notation_song2">C D E, E D C, E D C</string>
+    <string name="l2_notation_song3">Up and down to middle C</string>
+    <string name="l2_s36">Now play the C major scale using the correct fingerings.</string>
+    <string name="l2_img_c_major_fingering">C major scale with fingerings</string>
+    <string name="l2_s38">And lastly, try this tune in 4/4 time.</string>
+    <string name="l2_img_song_treble">A short tune on the treble staff in 4/4 time</string>
+
+    <!-- Lesson 3 -->
+    <string name="l3_s1">Lesson 3: The bass staff</string>
+    <string name="l3_s2">The bass clef is drawn from the fourth line of the staff. That line is called F.</string>
+    <string name="l3_img_bass_staff">Bass staff with the names of each line and space</string>
+    <string name="l3_s4">The names of the bass staff can be remembered with the following acronyms.</string>
+    <string name="l3_s5">Lines: Good Boys Deserve Fudge Always</string>
+    <string name="l3_s6">Spaces: All Cows Eat Grass</string>
+    <string name="l3_s7">The bass notes are usually played with the left hand.</string>
+    <string name="l3_s8">Now play the following with the left hand, remembering to use the correct fingerings. The keyboard moves down to C3 for you.</string>
+    <string name="l3_notation_left_hand">Left hand five-finger scale: C D E F G with fingers 5 4 3 2 1</string>
+    <string name="l3_img_left_five1">Left hand exercise, part 1</string>
+    <string name="l3_img_left_five2">Left hand exercise, part 2</string>
+    <string name="l3_s12">The grand staff:</string>
+    <string name="l3_s13">The grand staff is made of the treble and bass staves joined by a brace.</string>
+    <string name="l3_img_grand_staff">The grand staff</string>
+    <string name="l3_s15">The grand staff and its relation to the piano</string>
+    <string name="l3_img_grandstaff_piano">Grand staff notes mapped to piano keys</string>
+
+    <!-- Lesson 4 -->
+    <string name="l4_s1">Lesson 4: Notes</string>
+    <string name="l4_img_notes1">Note values and their names</string>
+    <string name="l4_img_notes2">Note values and their beats</string>
+    <string name="l4_img_note_tree">The note tree: how note values divide</string>
+    <string name="l4_s5">Bar lines: these are vertical lines that cut through the staff. They divide the staff into equal measures of time.</string>
+    <string name="l4_img_bar_lines">Bar lines dividing the staff into measures</string>
+    <string name="l4_s7">Time signatures:</string>
+    <string name="l4_img_time_signatures">Common time signatures</string>
+    <string name="l4_s9">A time signature of 4/4 means there are four quarter notes (crotchets) in a bar. The crotchet gets one beat.</string>
+    <string name="l4_img_song_treble">A tune in 4/4 time</string>
+    <string name="l4_s11">Similarly, a time signature of 3/4 means there are three quarter notes (crotchets) in a bar. The crotchet gets one beat.</string>
+    <string name="l4_s12">A time signature of 6/8 means there are six eighth notes (quavers) in a bar. The quaver gets one beat.</string>
+    <string name="l4_img_time_sig1">Counting beats in different time signatures, part 1</string>
+    <string name="l4_img_time_sig2">Counting beats in different time signatures, part 2</string>
+
+    <!-- Lesson 5 -->
+    <string name="l5_s1">Lesson 5: Chords</string>
+    <string name="l5_s2">Coming soon!</string>
+    <string name="l5_s3">The rudiments of chords will be taught here.</string>
+    <string name="l5_s4">Stay tuned!</string>
+    <string name="l5_s5">Cheers!</string>
+</resources>

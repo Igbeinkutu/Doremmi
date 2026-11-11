@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <ImageView
+        android:id="@+id/media_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/space_m"
+        android:scaleType="fitCenter"
+        tools:ignore="ContentDescription" />
+
+    <com.ebisoft.doremmi.notation.NotationView
+        android:id="@+id/media_notation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/space_l" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/media_close"
+        style="@style/Widget.Doremmi.Button.Icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_margin="@dimen/space_s"
+        android:contentDescription="@string/action_close"
+        app:icon="@drawable/ic_close" />
+</FrameLayout>

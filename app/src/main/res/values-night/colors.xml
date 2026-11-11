@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="md_primary">#F2BC82</color>
+    <color name="md_on_primary">#4A2800</color>
+    <color name="md_primary_container">#673D0A</color>
+    <color name="md_on_primary_container">#FFDCBC</color>
+    <color name="md_secondary">#E7C449</color>
+    <color name="md_on_secondary">#3B2F00</color>
+    <color name="md_secondary_container">#554500</color>
+    <color name="md_on_secondary_container">#FFE07A</color>
+    <color name="md_tertiary">#B2D1A2</color>
+    <color name="md_on_tertiary">#1F3716</color>
+    <color name="md_tertiary_container">#354E2A</color>
+    <color name="md_on_tertiary_container">#CDEDBC</color>
+    <color name="md_error">#FFB4AB</color>
+    <color name="md_on_error">#690005</color>
+    <color name="md_error_container">#93000A</color>
+    <color name="md_on_error_container">#FFDAD6</color>
+    <color name="md_background">#19120D</color>
+    <color name="md_on_background">#EFE0D7</color>
+    <color name="md_surface">#19120D</color>
+    <color name="md_on_surface">#EFE0D7</color>
+    <color name="md_surface_variant">#51443A</color>
+    <color name="md_on_surface_variant">#D6C3B6</color>
+    <color name="md_outline">#9E8E82</color>
+    <color name="md_outline_variant">#51443A</color>
+    <color name="md_surface_container_lowest">#130D08</color>
+    <color name="md_surface_container_low">#211A15</color>
+    <color name="md_surface_container">#261E19</color>
+    <color name="md_surface_container_high">#302823</color>
+    <color name="md_surface_container_highest">#3C332D</color>
+    <color name="md_inverse_surface">#EFE0D7</color>
+    <color name="md_inverse_on_surface">#362F2A</color>
+    <color name="md_inverse_primary">#7A4E1D</color>
+
+    <color name="feedback_correct">#81C784</color>
+    <color name="feedback_correct_container">#1B5E20</color>
+    <color name="feedback_incorrect">#FFB4AB</color>
+    <color name="feedback_incorrect_container">#93000A</color>
+
+    <color name="piano_key_border">#5A4D44</color>
+    <color name="piano_frame">#0E0A07</color>
+</resources>

@@ -1,57 +1,116 @@
 package com.ebisoft.doremmi;
 
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.annotation.Nullable;
 
-public abstract class PianoBaseActivity extends AppCompatActivity {
+import com.ebisoft.doremmi.piano.Notes;
+import com.ebisoft.doremmi.piano.PianoKeyboardView;
+import com.ebisoft.doremmi.piano.PianoSoundBank;
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.snackbar.Snackbar;
+
+import java.io.IOException;
+
+/** Base for screens with a playable keyboard: sounds, octave controls and recording. */
+public abstract class PianoBaseActivity extends BaseActivity {
     protected AudioRecordingHelper recordingHelper;
+    protected PianoSoundBank soundBank;
+    protected PianoKeyboardView piano;
+
+    private MaterialButton recordButton;
+    private MaterialButton playRecordingButton;
+    private MaterialButton octaveDownButton;
+    private MaterialButton octaveUpButton;
+    private TextView rangeLabel;
+    private boolean recording;
     private boolean pendingRecordStart;
-    private Button pendingRecordButton;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         recordingHelper = new AudioRecordingHelper(this);
+        soundBank = new PianoSoundBank(this);
     }
 
-    @Override
-    public void setContentView(int layoutResID) {
-        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
-        super.setContentView(layoutResID);
-        applySystemBarInsets();
+    /** Call after setContentView. Expects the layout to include view_piano_controls and a piano. */
+    protected void setupPiano() {
+        piano = findViewById(R.id.piano);
+        piano.setOnKeyPressListener(this::onPianoKeyPressed);
+
+        octaveDownButton = findViewById(R.id.octave_down);
+        octaveUpButton = findViewById(R.id.octave_up);
+        rangeLabel = findViewById(R.id.octave_range);
+        recordButton = findViewById(R.id.record);
+        playRecordingButton = findViewById(R.id.play_recording);
+
+        octaveDownButton.setOnClickListener(v -> piano.shiftOctave(-1));
+        octaveUpButton.setOnClickListener(v -> piano.shiftOctave(1));
+        piano.setOnRangeChangeListener(this::onRangeChanged);
+        recordButton.setOnClickListener(v -> toggleRecording());
+        playRecordingButton.setOnClickListener(v -> playRecording());
+        playRecordingButton.setEnabled(false);
+
         maybeShowLandscapeHint();
     }
 
-    @Override
-    protected void onDestroy() {
-        if (recordingHelper != null) {
-            recordingHelper.release();
-        }
-        super.onDestroy();
+    protected void onPianoKeyPressed(int midi) {
+        soundBank.play(midi);
     }
 
-    protected boolean beginRecordingIfPermitted(Button recordButton) {
-        if (recordingHelper.hasRecordPermission()) {
-            return recordingHelper.startRecording();
+    private void onRangeChanged(int lowest, int highest) {
+        rangeLabel.setText(getString(R.string.octave_range, Notes.name(lowest), Notes.name(highest)));
+        octaveDownButton.setEnabled(piano.canShiftDown());
+        octaveUpButton.setEnabled(piano.canShiftUp());
+    }
+
+    private void toggleRecording() {
+        if (recording) {
+            stopRecording();
+            Toast.makeText(this, R.string.recording_stopped, Toast.LENGTH_SHORT).show();
+            return;
         }
-        pendingRecordStart = true;
-        pendingRecordButton = recordButton;
-        recordingHelper.requestRecordPermission();
-        return false;
+        if (!recordingHelper.hasRecordPermission()) {
+            pendingRecordStart = true;
+            recordingHelper.requestRecordPermission();
+            return;
+        }
+        startRecording();
+    }
+
+    private void startRecording() {
+        if (recordingHelper.startRecording()) {
+            recording = true;
+            updateRecordButton();
+            Toast.makeText(this, R.string.recording_audio, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void stopRecording() {
+        recordingHelper.stopRecording();
+        recording = false;
+        playRecordingButton.setEnabled(true);
+        updateRecordButton();
+    }
+
+    private void updateRecordButton() {
+        recordButton.setIconResource(recording ? R.drawable.ic_stop : R.drawable.ic_mic);
+        recordButton.setText(recording ? R.string.record_stop : R.string.record);
+        recordButton.setContentDescription(getString(recording ? R.string.record_stop : R.string.record));
+    }
+
+    private void playRecording() {
+        try {
+            recordingHelper.playRecording();
+        } catch (IOException e) {
+            Toast.makeText(this, R.string.recording_missing, Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -62,66 +121,36 @@ public abstract class PianoBaseActivity extends AppCompatActivity {
             return;
         }
         boolean granted = grantResults.length > 0
-                && grantResults[0] == android.content.pm.PackageManager.PERMISSION_GRANTED;
-        if (granted && pendingRecordStart && pendingRecordButton != null) {
-            pendingRecordStart = false;
-            if (recordingHelper.startRecording()) {
-                pendingRecordButton.setText(R.string.record_stop);
-                Toast.makeText(this, R.string.recording_audio, Toast.LENGTH_SHORT).show();
-            }
+                && grantResults[0] == PackageManager.PERMISSION_GRANTED;
+        if (granted && pendingRecordStart) {
+            startRecording();
         } else if (!granted) {
-            pendingRecordStart = false;
             Toast.makeText(this, R.string.record_permission_denied, Toast.LENGTH_LONG).show();
         }
-    }
-
-    private void applySystemBarInsets() {
-        View content = findViewById(android.R.id.content);
-        if (!(content instanceof ViewGroup)) {
-            return;
-        }
-        View root = ((ViewGroup) content).getChildAt(0);
-        if (root == null) {
-            return;
-        }
-        final int initialLeft = root.getPaddingLeft();
-        final int initialTop = root.getPaddingTop();
-        final int initialRight = root.getPaddingRight();
-        final int initialBottom = root.getPaddingBottom();
-        ViewCompat.setOnApplyWindowInsetsListener(root, (v, insets) -> {
-            Insets bars = insets.getInsets(
-                    WindowInsetsCompat.Type.systemBars() | WindowInsetsCompat.Type.displayCutout());
-            v.setPadding(
-                    initialLeft + bars.left,
-                    initialTop + bars.top,
-                    initialRight + bars.right,
-                    initialBottom + bars.bottom);
-            return WindowInsetsCompat.CONSUMED;
-        });
+        pendingRecordStart = false;
     }
 
     private void maybeShowLandscapeHint() {
         Configuration config = getResources().getConfiguration();
-        boolean largeScreen = config.smallestScreenWidthDp >= 600;
-        boolean portrait = config.orientation == Configuration.ORIENTATION_PORTRAIT;
-        if (!largeScreen || !portrait) {
+        if (config.orientation != Configuration.ORIENTATION_PORTRAIT) {
             return;
         }
-        View content = findViewById(android.R.id.content);
-        if (!(content instanceof FrameLayout)) {
-            return;
+        View root = findViewById(android.R.id.content);
+        Snackbar.make(root, R.string.rotate_landscape_hint, Snackbar.LENGTH_LONG).show();
+    }
+
+    @Override
+    protected void onStop() {
+        if (recording) {
+            stopRecording();
         }
-        TextView banner = new TextView(this);
-        banner.setText(R.string.rotate_landscape_hint);
-        banner.setTextColor(0xFFFFFFFF);
-        banner.setBackgroundColor(0xCC000000);
-        banner.setGravity(Gravity.CENTER);
-        int padding = (int) (12 * getResources().getDisplayMetrics().density);
-        banner.setPadding(padding, padding, padding, padding);
-        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                Gravity.TOP);
-        ((FrameLayout) content).addView(banner, params);
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        recordingHelper.release();
+        soundBank.release();
+        super.onDestroy();
     }
 }

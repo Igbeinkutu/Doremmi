@@ -1,7 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#f9fafd</color>
-    <color name="colorPrimaryDark">#00020b</color>
-    <color name="colorAccent">#FF4081</color>
+
+    <color name="md_primary">#7A4E1D</color>
+    <color name="md_on_primary">#FFFFFF</color>
+    <color name="md_primary_container">#FFDCBC</color>
+    <color name="md_on_primary_container">#2C1600</color>
+    <color name="md_secondary">#715C00</color>
+    <color name="md_on_secondary">#FFFFFF</color>
+    <color name="md_secondary_container">#FFE07A</color>
+    <color name="md_on_secondary_container">#221B00</color>
+    <color name="md_tertiary">#4C6640</color>
+    <color name="md_on_tertiary">#FFFFFF</color>
+    <color name="md_tertiary_container">#CDEDBC</color>
+    <color name="md_on_tertiary_container">#0B2004</color>
+    <color name="md_error">#BA1A1A</color>
+    <color name="md_on_error">#FFFFFF</color>
+    <color name="md_error_container">#FFDAD6</color>
+    <color name="md_on_error_container">#410002</color>
+    <color name="md_background">#FFF8F4</color>
+    <color name="md_on_background">#211A15</color>
+    <color name="md_surface">#FFF8F4</color>
+    <color name="md_on_surface">#211A15</color>
+    <color name="md_surface_variant">#F3DFD1</color>
+    <color name="md_on_surface_variant">#51443A</color>
+    <color name="md_outline">#84746A</color>
+    <color name="md_outline_variant">#D6C3B6</color>
+    <color name="md_surface_container_lowest">#FFFFFF</color>
+    <color name="md_surface_container_low">#FCF2EB</color>
+    <color name="md_surface_container">#F6ECE5</color>
+    <color name="md_surface_container_high">#F0E6DF</color>
+    <color name="md_surface_container_highest">#EBE0DA</color>
+    <color name="md_inverse_surface">#362F2A</color>
+    <color name="md_inverse_on_surface">#FCEEE6</color>
+    <color name="md_inverse_primary">#F2BC82</color>
+
+    <color name="feedback_correct">#2E7D32</color>
+    <color name="feedback_correct_container">#C8E6C9</color>
+    <color name="feedback_incorrect">#BA1A1A</color>
+    <color name="feedback_incorrect_container">#FFDAD6</color>
+
+    <color name="piano_white_key">#FFFDF8</color>
+    <color name="piano_white_key_pressed">#E6DCD2</color>
+    <color name="piano_black_key">#1E1A18</color>
+    <color name="piano_black_key_pressed">#4A403A</color>
+    <color name="piano_key_border">#9E8E82</color>
+    <color name="piano_key_label">#84746A</color>
+    <color name="piano_highlight">#E0A100</color>
+    <color name="piano_frame">#3B2A1A</color>
+
     <color name="ic_launcher_background">#1A1A2E</color>
 </resources>

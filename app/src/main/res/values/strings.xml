@@ -1,9 +1,118 @@
 <resources>
     <string name="app_name">Doremmi</string>
-    <string name="rotate_landscape_hint">This screen works best in landscape. Please rotate your device.</string>
-    <string name="recording_audio">Recording Audio</string>
-    <string name="recording_failed">Could not start recording</string>
-    <string name="recording_missing">No recording found</string>
-    <string name="record_permission_denied">Microphone permission is needed to record</string>
+
+    <!-- Home -->
+    <string name="home_greeting">Ready to play?</string>
+    <string name="home_continue_title">Continue learning</string>
+    <string name="home_start_title">Start your first lesson</string>
+    <string name="home_start_subtitle">Meet the keyboard in Lesson 1</string>
+    <string name="home_all_done_title">All lessons complete</string>
+    <string name="home_all_done_subtitle">Keep practising with games and free play</string>
+    <string name="home_continue_subtitle">%1$s · Step %2$d of %3$d</string>
+    <string name="home_continue_action">Resume</string>
+    <string name="home_start_action">Start</string>
+    <string name="home_games_action">Play a game</string>
+
+    <string name="section_lessons">Lessons</string>
+    <string name="section_lessons_desc">Step-by-step basics</string>
+    <string name="section_free_play">Free Play</string>
+    <string name="section_free_play_desc">Play and record</string>
+    <string name="section_songs">Songs</string>
+    <string name="section_songs_desc">Listen to classics</string>
+    <string name="section_games">Games</string>
+    <string name="section_games_desc">Test what you learned</string>
+    <string name="section_scores">Scores</string>
+    <string name="section_scores_desc">Track your progress</string>
+
+    <!-- Common -->
+    <string name="navigate_up">Navigate up</string>
+    <string name="action_next">Next</string>
+    <string name="action_previous">Previous</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_close">Close</string>
+    <string name="action_play">Play</string>
+    <string name="action_pause">Pause</string>
+    <string name="action_stop">Stop</string>
+    <string name="action_retry">Play again</string>
+    <string name="action_view_scores">View scores</string>
+    <string name="action_back_to_lessons">Back to lessons</string>
+    <string name="action_back_to_games">Back to games</string>
+    <string name="action_next_lesson">Next lesson</string>
+    <string name="action_take_quiz">Take the quiz</string>
+    <string name="action_open_full_screen">Open image full screen</string>
+
+    <!-- Piano controls -->
+    <string name="octave_down">Lower octave</string>
+    <string name="octave_up">Higher octave</string>
+    <string name="octave_range">%1$s–%2$s</string>
+    <string name="record">Record</string>
     <string name="record_stop">Stop</string>
+    <string name="record_play">Play recording</string>
+    <string name="recording_audio">Recording audio</string>
+    <string name="recording_stopped">Recording saved. Tap play to listen.</string>
+    <string name="recording_failed">Could not start recording</string>
+    <string name="recording_missing">No recording yet. Tap record first.</string>
+    <string name="record_permission_denied">Microphone permission is needed to record</string>
+    <string name="rotate_landscape_hint">The piano works best in landscape. Rotate your device for more keys.</string>
+    <string name="piano_keyboard_description">Piano keyboard</string>
+    <string name="free_play_hint">Play anything you like. Slide your finger across the keys for a glissando.</string>
+
+    <!-- Lessons -->
+    <string name="lesson_number">Lesson %1$d</string>
+    <string name="lesson_toolbar_subtitle">Lesson %1$d · Step %2$d of %3$d</string>
+    <string name="action_finish">Finish lesson</string>
+    <string name="lesson_status_not_started">Not started</string>
+    <string name="lesson_status_in_progress">Step %1$d of %2$d</string>
+    <string name="lesson_status_done">Completed</string>
+    <string name="lesson_practice_quiz">Practice quiz</string>
+    <string name="lesson_guided_hint">Play the highlighted keys in order</string>
+    <string name="lesson_guided_done">Well done! Tap next to continue.</string>
+    <string name="lesson_complete_title">Lesson %1$d complete!</string>
+    <string name="lesson_complete_message">Great work. You finished “%1$s”.</string>
+    <string name="lesson_complete_last_message">You finished every lesson available so far. More are on the way.</string>
+
+    <!-- Games / quizzes -->
+    <string name="game_best_score">Best: %1$d/%2$d</string>
+    <string name="game_not_played">Not played yet</string>
+    <string name="game_round_length">%1$d-second round</string>
+    <plurals name="game_time_remaining">
+        <item quantity="one">%1$d second remaining</item>
+        <item quantity="other">%1$d seconds remaining</item>
+    </plurals>
+    <string name="game_question_counter">Question %1$d of %2$d</string>
+    <string name="game_correct">Correct!</string>
+    <string name="game_incorrect">Not quite. The answer is %1$s.</string>
+    <string name="game_times_up">Time\'s up!</string>
+    <string name="game_result_pass_title">Well done!</string>
+    <string name="game_result_fail_title">Keep practising</string>
+    <string name="game_result_pass_message">%1$d of %2$d questions correct.</string>
+    <string name="game_result_fail_message">%1$d of %2$d questions correct. Try again to beat your score.</string>
+    <string name="game_new_best">New personal best!</string>
+    <string name="game_exit_title">Leave the game?</string>
+    <string name="game_exit_message">Your progress in this round will be lost.</string>
+    <string name="game_exit_confirm">Leave</string>
+    <string name="game_exit_stay">Keep playing</string>
+    <string name="notation_description">Music notation for this question</string>
+
+    <!-- Scores -->
+    <string name="scores_title">Scores</string>
+    <string name="scores_lessons_header">Lessons</string>
+    <string name="scores_lessons_progress">%1$d of %2$d lessons completed</string>
+    <string name="scores_best">Best %1$d/%2$d</string>
+    <string name="scores_last">Last %1$d/%2$d · %3$s</string>
+    <string name="scores_last_no_date">Last %1$d/%2$d</string>
+    <string name="scores_just_now">just now</string>
+    <string name="scores_reset">Reset scores</string>
+    <string name="scores_reset_title">Reset all progress?</string>
+    <string name="scores_reset_message">This clears your game scores and lesson progress.</string>
+    <string name="scores_reset_confirm">Reset</string>
+    <string name="scores_reset_done">Progress cleared</string>
+
+    <!-- Songs -->
+    <string name="songs_title">Songs</string>
+    <string name="songs_now_playing">Now playing</string>
+    <string name="songs_play_error">This song could not be played</string>
+    <string name="songs_seek">Song position</string>
+    <string name="songs_play_item">Play %1$s by %2$s</string>
+    <string name="songs_pause_item">Pause %1$s by %2$s</string>
 </resources>
