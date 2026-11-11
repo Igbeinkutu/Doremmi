@@ -257,8 +257,9 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
     public boolean onTouch(View v, MotionEvent event) {
         int action = event.getAction();
         int action1 = event.getActionMasked();
-        switch(v.getId()){
-            case R.id.C4:
+        int id = v.getId();
+        if (id == R.id.C4) {
+
                 if(action == MotionEvent.ACTION_DOWN) {
                     v.setPressed(true);
                     soundPool.play(soundID_C4, 1, 1, 0, 0, 1);
@@ -273,9 +274,9 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
                 else if (action1 == MotionEvent.ACTION_POINTER_UP){
                     //mediaPlayer.release();
                 }
+        }
+        else if (id == R.id.Db4) {
 
-                break;
-            case R.id.Db4:
                 if(action == MotionEvent.ACTION_DOWN) {
                     v.setPressed(true);
                     soundPool.play(soundID_Db4, 1, 1, 0, 0, 1);
@@ -286,8 +287,9 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
                 else if (action1 == MotionEvent.ACTION_POINTER_UP){
                     v.setPressed(false);
                 }
-                break;
-            case R.id.D4:
+        }
+        else if (id == R.id.D4) {
+
                 if(action == MotionEvent.ACTION_DOWN) {
                     v.setPressed(true);
                     soundPool.play(soundID_D4, 1, 1, 0, 0, 1);
@@ -298,8 +300,9 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
                 else if (action == MotionEvent.ACTION_POINTER_UP){
                     v.setPressed(false);
                 }
-                break;
-            case R.id.Eb4:
+        }
+        else if (id == R.id.Eb4) {
+
                 if(action == MotionEvent.ACTION_DOWN) {
                     v.setPressed(true);
                     soundPool.play(soundID_Eb4, 1, 1, 0, 0, 1);
@@ -311,8 +314,9 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
                 else if (action1 == MotionEvent.ACTION_POINTER_UP){
                     //mediaPlayer.release();
                 }
-                break;
-            case R.id.E4:
+        }
+        else if (id == R.id.E4) {
+
                 if(action == MotionEvent.ACTION_DOWN) {
                     v.setPressed(true);
                     soundPool.play(soundID_E4, 1, 1, 0, 0, 1);
@@ -323,8 +327,9 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
                 else if (action1 == MotionEvent.ACTION_POINTER_UP){
                     v.setPressed(false);
                 }
-                break;
-            case R.id.F4:
+        }
+        else if (id == R.id.F4) {
+
                 if(action == MotionEvent.ACTION_DOWN) {
                     v.setPressed(true);
                     soundPool.play(soundID_F4, 1, 1, 0, 0, 1);
@@ -335,8 +340,9 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
                 else if (action == MotionEvent.ACTION_POINTER_UP){
                     //mediaPlayer.release();
                 }
-                break;
-            case R.id.Gb4:
+        }
+        else if (id == R.id.Gb4) {
+
                 if(action == MotionEvent.ACTION_DOWN) {
                     v.setPressed(true);
                     soundPool.play(soundID_Gb4, 1, 1, 0, 0, 1);
@@ -347,8 +353,9 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
                 else if (action == MotionEvent.ACTION_POINTER_UP){
                     //mediaPlayer.release();
                 }
-                break;
-            case R.id.G4:
+        }
+        else if (id == R.id.G4) {
+
                 if(action == MotionEvent.ACTION_DOWN) {
                     v.setPressed(true);
                     soundPool.play(soundID_G4, 1, 1, 0, 0, 1);
@@ -356,8 +363,9 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
                 else if (action == MotionEvent.ACTION_UP){
                     v.setPressed(false);
                 }
-                break;
-            case R.id.Ab4:
+        }
+        else if (id == R.id.Ab4) {
+
                 if(action == MotionEvent.ACTION_DOWN) {
                     v.setPressed(true);
                     soundPool.play(soundID_Ab4, 1, 1, 0, 0, 1);
@@ -365,8 +373,9 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
                 else if (action == MotionEvent.ACTION_UP){
                     v.setPressed(false);
                 }
-                break;
-            case R.id.A4:
+        }
+        else if (id == R.id.A4) {
+
                 if(action == MotionEvent.ACTION_DOWN) {
                     v.setPressed(true);
                     soundPool.play(soundID_A4, 1, 1, 0, 0, 1);
@@ -375,8 +384,9 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
                     //mediaPlayer.release();
                     v.setPressed(false);
                 }
-                break;
-            case R.id.Bb4:
+        }
+        else if (id == R.id.Bb4) {
+
                 if(action == MotionEvent.ACTION_DOWN) {
                     v.setPressed(true);
                     soundPool.play(soundID_Bb4, 1, 1, 0, 0, 1);
@@ -388,9 +398,9 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
                 else if (action1 == MotionEvent.ACTION_POINTER_UP){
                     mediaPlayer.release();
                 }
+        }
+        else if (id == R.id.B4) {
 
-                break;
-            case R.id.B4:
                 if(action == MotionEvent.ACTION_DOWN) {
                     v.setPressed(true);
                     soundPool.play(soundID_B4, 1, 1, 0, 0, 1);
@@ -402,9 +412,9 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
                 else if (action1 == MotionEvent.ACTION_POINTER_UP){
                     //mediaPlayer.release();
                 }
+        }
+        else if (id == R.id.C5) {
 
-                break;
-            case R.id.C5:
                 if(action == MotionEvent.ACTION_DOWN) {
                     v.setPressed(true);
                     soundPool.play(soundID_C5, 1, 1, 0, 0, 1);
@@ -415,10 +425,9 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
                 else if (action1 == MotionEvent.ACTION_POINTER_UP){
                     mediaPlayer.release();
                 }
+        }
+        else if (id == R.id.Db51) {
 
-                break;
-
-            case R.id.Db51:
                 if(action == MotionEvent.ACTION_DOWN) {
                     v.setPressed(true);
                     soundPool.play(soundID_Db51, 1, 1, 0, 0, 1);
@@ -431,8 +440,9 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
                     v.setPressed(false);
                     mediaPlayer.release();
                 }
-                break;
-            case R.id.D51:
+        }
+        else if (id == R.id.D51) {
+
                 if(action == MotionEvent.ACTION_DOWN) {
                     v.setPressed(true);
                     soundPool.play(soundID_D51, 1, 1, 0, 0, 1);
@@ -445,13 +455,11 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
                     v.setPressed(false);
                     mediaPlayer.release();
                 }
-                break;
-
-
-
 
                 //upper octave
-            case R.id.C51:
+        }
+        else if (id == R.id.C51) {
+
                 if(action == MotionEvent.ACTION_DOWN) {
                     v.setPressed(true);
                     soundPool.play(soundID_C51, 1, 1, 0, 0, 1);
@@ -463,9 +471,9 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
                 else if (action1 == MotionEvent.ACTION_POINTER_UP){
                     //mediaPlayer.release();
                 }
+        }
+        else if (id == R.id.Db5) {
 
-                break;
-            case R.id.Db5:
                 if(action == MotionEvent.ACTION_DOWN) {
                     v.setPressed(true);
                     soundPool.play(soundID_Db5, 1, 1, 0, 0, 1);
@@ -478,8 +486,9 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
                     v.setPressed(false);
                     mediaPlayer.release();
                 }
-                break;
-            case R.id.D5:
+        }
+        else if (id == R.id.D5) {
+
                 if(action == MotionEvent.ACTION_DOWN) {
                     v.setPressed(true);
                     soundPool.play(soundID_D5, 1, 1, 0, 0, 1);
@@ -495,8 +504,9 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
                     //mediaPlayer.release();
                     v.setPressed(false);
                 }
-                break;
-            case R.id.Eb5:
+        }
+        else if (id == R.id.Eb5) {
+
                 if(action == MotionEvent.ACTION_DOWN) {
                     v.setPressed(true);
                     soundPool.play(soundID_Eb5, 1, 1, 0, 0, 1);
@@ -507,8 +517,9 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
 
                 else if (action1 == MotionEvent.ACTION_POINTER_UP){
                 }
-                break;
-            case R.id.E5:
+        }
+        else if (id == R.id.E5) {
+
                 if(action == MotionEvent.ACTION_DOWN) {
                     v.setPressed(true);
                     soundPool.play(soundID_E5, 1, 1, 0, 0, 1);
@@ -521,8 +532,9 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
                     //mediaPlayer.release();
                     v.setPressed(false);
                 }
-                break;
-            case R.id.F5:
+        }
+        else if (id == R.id.F5) {
+
                 if(action == MotionEvent.ACTION_DOWN) {
                     v.setPressed(true);
                     soundPool.play(soundID_F5, 1, 1, 0, 0, 1);
@@ -534,8 +546,9 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
                 else if (action == MotionEvent.ACTION_POINTER_UP){
                     //mediaPlayer.release();
                 }
-                break;
-            case R.id.Gb5:
+        }
+        else if (id == R.id.Gb5) {
+
                 if(action == MotionEvent.ACTION_DOWN) {
                     v.setPressed(true);
                     soundPool.play(soundID_Gb5, 1, 1, 0, 0, 1);
@@ -546,8 +559,9 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
                 else if (action == MotionEvent.ACTION_POINTER_UP){
                     //mediaPlayer.release();
                 }
-                break;
-            case R.id.G5:
+        }
+        else if (id == R.id.G5) {
+
                 if(action == MotionEvent.ACTION_DOWN) {
                     v.setPressed(true);
                     soundPool.play(soundID_G5, 1, 1, 0, 0, 1);
@@ -555,8 +569,9 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
                 else if (action == MotionEvent.ACTION_UP){
                     v.setPressed(false);
                 }
-                break;
-            case R.id.Ab5:
+        }
+        else if (id == R.id.Ab5) {
+
                 if(action == MotionEvent.ACTION_DOWN) {
                     v.setPressed(true);
                     soundPool.play(soundID_Ab5, 1, 1, 0, 0, 1);
@@ -564,8 +579,9 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
                 else if (action == MotionEvent.ACTION_UP){
                     v.setPressed(false);
                 }
-                break;
-            case R.id.A5:
+        }
+        else if (id == R.id.A5) {
+
                 if(action == MotionEvent.ACTION_DOWN) {
                     v.setPressed(true);
                     soundPool.play(soundID_A5, 1, 1, 0, 0, 1);
@@ -573,8 +589,9 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
                 else if (action == MotionEvent.ACTION_UP){
                     v.setPressed(false);
                 }
-                break;
-            case R.id.Bb5:
+        }
+        else if (id == R.id.Bb5) {
+
                 if(action == MotionEvent.ACTION_DOWN) {
                     v.setPressed(true);
                     soundPool.play(soundID_Bb5, 1, 1, 0, 0, 1);
@@ -585,9 +602,9 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
                 else if (action1 == MotionEvent.ACTION_POINTER_UP){
                     mediaPlayer.release();
                 }
+        }
+        else if (id == R.id.B5) {
 
-                break;
-            case R.id.B5:
                 if(action == MotionEvent.ACTION_DOWN) {
                     v.setPressed(true);
                     soundPool.play(soundID_B5, 1, 1, 0, 0, 1);
@@ -598,9 +615,9 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
                 else if (action1 == MotionEvent.ACTION_POINTER_UP){
                     //mediaPlayer.release();
                 }
+        }
+        else if (id == R.id.C6) {
 
-                break;
-            case R.id.C6:
                 if(action == MotionEvent.ACTION_DOWN) {
                     v.setPressed(true);
                     soundPool.play(soundID_C6, 1, 1, 0, 0, 1);
@@ -612,11 +629,11 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
                     mediaPlayer.release();
                 }
 
-                break;
 
             //upper octave
+        }
+        else if (id == R.id.C3) {
 
-            case R.id.C3:
                 if(action == MotionEvent.ACTION_DOWN) {
                     v.setPressed(true);
                     soundPool.play(soundID_C3, 1, 1, 0, 0, 1);
@@ -628,9 +645,9 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
                 else if (action1 == MotionEvent.ACTION_POINTER_UP){
                     //mediaPlayer.release();
                 }
+        }
+        else if (id == R.id.Db3) {
 
-                break;
-            case R.id.Db3:
                 if(action == MotionEvent.ACTION_DOWN) {
                     v.setPressed(true);
                     soundPool.play(soundID_Db3, 1, 1, 0, 0, 1);
@@ -641,8 +658,9 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
                 else if (action1 == MotionEvent.ACTION_POINTER_UP){
                     v.setPressed(false);
                 }
-                break;
-            case R.id.D3:
+        }
+        else if (id == R.id.D3) {
+
                 if(action == MotionEvent.ACTION_DOWN) {
                     v.setPressed(true);
                     soundPool.play(soundID_D3, 1, 1, 0, 0, 1);
@@ -653,8 +671,9 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
                 else if (action == MotionEvent.ACTION_POINTER_UP){
                     v.setPressed(false);
                 }
-                break;
-            case R.id.Eb3:
+        }
+        else if (id == R.id.Eb3) {
+
                 if(action == MotionEvent.ACTION_DOWN) {
                     v.setPressed(true);
                     soundPool.play(soundID_Eb3, 1, 1, 0, 0, 1);
@@ -666,8 +685,9 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
                 else if (action1 == MotionEvent.ACTION_POINTER_UP){
                     //mediaPlayer.release();
                 }
-                break;
-            case R.id.E3:
+        }
+        else if (id == R.id.E3) {
+
                 if(action == MotionEvent.ACTION_DOWN) {
                     v.setPressed(true);
                     soundPool.play(soundID_E3, 1, 1, 0, 0, 1);
@@ -678,8 +698,9 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
                 else if (action1 == MotionEvent.ACTION_POINTER_UP){
                     v.setPressed(false);
                 }
-                break;
-            case R.id.F3:
+        }
+        else if (id == R.id.F3) {
+
                 if(action == MotionEvent.ACTION_DOWN) {
                     v.setPressed(true);
                     soundPool.play(soundID_F3, 1, 1, 0, 0, 1);
@@ -689,8 +710,9 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
                 }
                 else if (action == MotionEvent.ACTION_POINTER_UP){
                 }
-                break;
-            case R.id.Gb3:
+        }
+        else if (id == R.id.Gb3) {
+
                 if(action == MotionEvent.ACTION_DOWN) {
                     v.setPressed(true);
                     soundPool.play(soundID_Gb3, 1, 1, 0, 0, 1);
@@ -701,8 +723,9 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
                 else if (action == MotionEvent.ACTION_POINTER_UP){
 
                 }
-                break;
-            case R.id.G3:
+        }
+        else if (id == R.id.G3) {
+
                 if(action == MotionEvent.ACTION_DOWN) {
                     v.setPressed(true);
                     soundPool.play(soundID_G3, 1, 1, 0, 0, 1);
@@ -710,8 +733,9 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
                 else if (action == MotionEvent.ACTION_UP){
                     v.setPressed(false);
                 }
-                break;
-            case R.id.Ab3:
+        }
+        else if (id == R.id.Ab3) {
+
                 if(action == MotionEvent.ACTION_DOWN) {
                     v.setPressed(true);
                     soundPool.play(soundID_Ab3, 1, 1, 0, 0, 1);
@@ -719,8 +743,9 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
                 else if (action == MotionEvent.ACTION_UP){
                     v.setPressed(false);
                 }
-                break;
-            case R.id.A3:
+        }
+        else if (id == R.id.A3) {
+
                 if(action == MotionEvent.ACTION_DOWN) {
                     v.setPressed(true);
                     soundPool.play(soundID_A3, 1, 1, 0, 0, 1);
@@ -728,8 +753,9 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
                 else if (action == MotionEvent.ACTION_UP){
                     v.setPressed(false);
                 }
-                break;
-            case R.id.Bb3:
+        }
+        else if (id == R.id.Bb3) {
+
                 if(action == MotionEvent.ACTION_DOWN) {
                     v.setPressed(true);
                     soundPool.play(soundID_Bb3, 1, 1, 0, 0, 1);
@@ -740,9 +766,9 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
                 else if (action1 == MotionEvent.ACTION_POINTER_UP){
                     mediaPlayer.release();
                 }
+        }
+        else if (id == R.id.B3) {
 
-                break;
-            case R.id.B3:
                 if(action == MotionEvent.ACTION_DOWN) {
                     v.setPressed(true);
                     soundPool.play(soundID_B3, 1, 1, 0, 0, 1);
@@ -755,9 +781,9 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
                 else if (action1 == MotionEvent.ACTION_POINTER_UP){
                     //mediaPlayer.release();
                 }
+        }
+        else if (id == R.id.C41) {
 
-                break;
-            case R.id.C41:
                 if(action == MotionEvent.ACTION_DOWN) {
                     v.setPressed(true);
                     soundPool.play(soundID_C4, 1, 1, 0, 0, 1);
@@ -770,12 +796,8 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
                 else if (action1 == MotionEvent.ACTION_POINTER_UP){
                     mediaPlayer.release();
                 }
-
-                break;
-
-
-
         }
+
         return true;
     }
     @Override
