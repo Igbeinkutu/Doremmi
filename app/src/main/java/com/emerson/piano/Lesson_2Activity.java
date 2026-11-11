@@ -1,14 +1,11 @@
-package com.example.emerson.myapplication;
+package com.emerson.piano;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.media.AudioAttributes;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.media.SoundPool;
-import android.os.Environment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -25,7 +22,7 @@ import java.io.IOException;
 import java.util.HashMap;
 
 
-public class Lesson_2Activity extends AppCompatActivity implements OnTouchListener, View.OnClickListener {
+public class Lesson_2Activity extends PianoBaseActivity implements OnTouchListener, View.OnClickListener {
 
     ViewFlipper viewFlipper;
     ViewFlipper keyboardFlipper;
@@ -207,7 +204,7 @@ public class Lesson_2Activity extends AppCompatActivity implements OnTouchListen
         ib38 = (Button)findViewById(R.id.B3);
         ib39 = (Button)findViewById(R.id.C41);
 
-        soundPool = new SoundPool(99, AudioManager.STREAM_MUSIC, 0);
+        soundPool = PianoSoundPool.create();
 
         soundID_C4 = soundPool.load(this, R.raw.c4, 1);
         soundID_Db4 = soundPool.load(this, R.raw.db4, 1);
@@ -315,7 +312,7 @@ public class Lesson_2Activity extends AppCompatActivity implements OnTouchListen
         lower_octave = (Button)findViewById(R.id.low_octave);
 
         recordButton = (Button)findViewById(R.id.record);
-        FILE = Environment.getExternalStorageDirectory().getAbsolutePath() + "/tempRecord.3gp";
+        
 
         //lightable keys
         C4_lightable = (Button)findViewById(R.id.C4);
@@ -1423,7 +1420,9 @@ public class Lesson_2Activity extends AppCompatActivity implements OnTouchListen
     public void record(View view){
 
         if (recordButton.getText().toString().equals("Record")){
-            startRecord();
+            if (!beginRecordingIfPermitted(recordButton)) {
+                return;
+            }
             recordButton.setText("Stop");
             Toast.makeText(this, "Recording Audio", Toast.LENGTH_SHORT).show();
         }
@@ -1446,32 +1445,15 @@ public class Lesson_2Activity extends AppCompatActivity implements OnTouchListen
     }
 
     public void startRecord(){
-
-        mediaRecorder = new MediaRecorder();
-        mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-        mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-        mediaRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
-        mediaRecorder.setOutputFile(FILE);
-
-        try {
-            mediaRecorder.prepare();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        mediaRecorder.start();
+        recordingHelper.startRecording();
     }
 
     public void stopRecord(){
-        mediaRecorder.stop();
-        mediaRecorder.release();
-        mediaRecorder = null;
+        recordingHelper.stopRecording();
     }
 
     public void playRecord() throws IOException {
-        mediaPlayer = new MediaPlayer();
-        mediaPlayer.setDataSource(FILE);
-        mediaPlayer.prepare();
-        mediaPlayer.start();
+        recordingHelper.playRecording();
     }
 
 
@@ -1480,4 +1462,14 @@ public class Lesson_2Activity extends AppCompatActivity implements OnTouchListen
 //        mediaPlayer = MediaPlayer.create(this, R.raw.c4);
 //        mediaPlayer.start();
 //    }
+
+    @Override
+    protected void onDestroy() {
+        if (soundPool != null) {
+            soundPool.release();
+            soundPool = null;
+        }
+        stop();
+        super.onDestroy();
+    }
 }

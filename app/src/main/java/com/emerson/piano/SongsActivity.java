@@ -1,9 +1,8 @@
-package com.example.emerson.myapplication;
+package com.emerson.piano;
 
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.View;
@@ -18,7 +17,7 @@ import android.widget.Toast;
 
 import java.io.IOException;
 
-public class SongsActivity extends AppCompatActivity {
+public class SongsActivity extends PianoBaseActivity {
 
     private MediaPlayer mediaPlayer;
     private String FILE;
@@ -110,5 +109,11 @@ public class SongsActivity extends AppCompatActivity {
             mediaPlayer.release();
             mediaPlayer = null;
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        stop();
+        super.onDestroy();
     }
 }

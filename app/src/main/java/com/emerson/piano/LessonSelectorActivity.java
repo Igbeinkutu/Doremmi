@@ -1,8 +1,7 @@
-package com.example.emerson.myapplication;
+package com.emerson.piano;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.View;
@@ -14,7 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class LessonSelectorActivity extends AppCompatActivity {
+public class LessonSelectorActivity extends PianoBaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

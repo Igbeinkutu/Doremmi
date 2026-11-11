@@ -1,4 +1,4 @@
-package com.example.emerson.myapplication;
+package com.emerson.piano;
 
 import org.junit.Test;
 

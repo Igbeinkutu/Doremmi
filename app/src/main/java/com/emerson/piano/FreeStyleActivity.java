@@ -1,11 +1,8 @@
-package com.example.emerson.myapplication;
+package com.emerson.piano;
 
-import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.media.SoundPool;
-import android.os.Environment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -15,7 +12,7 @@ import android.widget.ViewFlipper;
 
 import java.io.IOException;
 
-public class FreeStyleActivity extends AppCompatActivity implements View.OnTouchListener {
+public class FreeStyleActivity extends PianoBaseActivity implements View.OnTouchListener {
 
     ViewFlipper keyboardFlipper;
     Button higher_octave;
@@ -123,7 +120,7 @@ public class FreeStyleActivity extends AppCompatActivity implements View.OnTouch
         Button ib38 = (Button)findViewById(R.id.B3);
         Button ib39 = (Button)findViewById(R.id.C41);
 
-        soundPool = new SoundPool(99, AudioManager.STREAM_MUSIC, 0);
+        soundPool = PianoSoundPool.create();
 
         soundID_C4 = soundPool.load(this, R.raw.c4, 1);
         soundID_Db4 = soundPool.load(this, R.raw.db4, 1);
@@ -220,7 +217,7 @@ public class FreeStyleActivity extends AppCompatActivity implements View.OnTouch
         lower_octave = (Button)findViewById(R.id.low_octave);
 
         recordButton = (Button)findViewById(R.id.record);
-        FILE = Environment.getExternalStorageDirectory().getAbsolutePath() + "/tempRecord.3gp";
+        
 
     }
 
@@ -747,7 +744,9 @@ public class FreeStyleActivity extends AppCompatActivity implements View.OnTouch
     public void record(View view){
 
         if (recordButton.getText().toString().equals("Record")){
-            startRecord();
+            if (!beginRecordingIfPermitted(recordButton)) {
+                return;
+            }
             recordButton.setText("Stop");
             Toast.makeText(this, "Recording Audio", Toast.LENGTH_SHORT).show();
         }
@@ -770,40 +769,29 @@ public class FreeStyleActivity extends AppCompatActivity implements View.OnTouch
     }
 
     public void startRecord(){
-
-        mediaRecorder = new MediaRecorder();
-        mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-        mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-        mediaRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
-        mediaRecorder.setOutputFile(FILE);
-
-        try {
-            mediaRecorder.prepare();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        mediaRecorder.start();
-
+        recordingHelper.startRecording();
     }
 
     public void stopRecord(){
-        mediaRecorder.stop();
-        mediaRecorder.release();
-        mediaRecorder = null;
+        recordingHelper.stopRecording();
     }
 
     public void playRecord() throws IOException {
-        mediaPlayer = new MediaPlayer();
-        mediaPlayer.setDataSource(FILE);
-        mediaPlayer.prepare();
-        mediaPlayer.start();
+        recordingHelper.playRecording();
     }
 
     public void playRecordButton(View view) throws IOException {
-        mediaPlayer = new MediaPlayer();
-        mediaPlayer.setDataSource(FILE);
-        mediaPlayer.prepare();
-        mediaPlayer.start();
+        recordingHelper.playRecording();
     }
 
+
+    @Override
+    protected void onDestroy() {
+        if (soundPool != null) {
+            soundPool.release();
+            soundPool = null;
+        }
+        stop();
+        super.onDestroy();
+    }
 }

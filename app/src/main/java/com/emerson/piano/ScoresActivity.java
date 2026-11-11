@@ -1,12 +1,11 @@
-package com.example.emerson.myapplication;
+package com.emerson.piano;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class ScoresActivity extends AppCompatActivity {
+public class ScoresActivity extends PianoBaseActivity {
 
 
     TextView name_note_score;

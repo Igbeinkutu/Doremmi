@@ -1,14 +1,11 @@
-package com.example.emerson.myapplication;
+package com.emerson.piano;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.media.AudioAttributes;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.media.SoundPool;
-import android.os.Environment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -23,7 +20,7 @@ import java.io.IOException;
 import java.util.HashMap;
 
 
-public class Lesson_3Activity extends AppCompatActivity implements OnTouchListener, View.OnClickListener {
+public class Lesson_4Activity extends PianoBaseActivity implements OnTouchListener, View.OnClickListener {
 
     ViewFlipper viewFlipper;
     ViewFlipper keyboardFlipper;
@@ -45,48 +42,6 @@ public class Lesson_3Activity extends AppCompatActivity implements OnTouchListen
 
     AudioAttributes attributes;
     AudioAttributes.Builder attributesBuilder;
-
-    Button ib1;
-    Button ib2;
-    Button ib3;
-    Button ib4;
-    Button ib5;
-    Button ib6;
-    Button ib7;
-    Button ib8;
-    Button ib9;
-    Button ib10;
-    Button ib11;
-    Button ib12;
-    Button ib13;
-    Button ib14;
-    Button ib15;
-    Button ib16;
-    Button ib17;
-    Button ib18;
-    Button ib19;
-    Button ib20;
-    Button ib21;
-    Button ib22;
-    Button ib23;
-    Button ib24;
-    Button ib25;
-    Button ib26;
-    Button ib27;
-    Button ib28;
-    Button ib29;
-    Button ib30;
-    Button ib31;
-    Button ib32;
-    Button ib33;
-    Button ib34;
-    Button ib35;
-    Button ib36;
-    Button ib37;
-    Button ib38;
-    Button ib39;
-    Button ib40;
-    Button ib41;
 
     int soundID_C4;
     int soundID_Db4;
@@ -137,57 +92,57 @@ public class Lesson_3Activity extends AppCompatActivity implements OnTouchListen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lesson_3);
+        setContentView(R.layout.activity_lesson_4);
 
-        ib1 = (Button)findViewById(R.id.C4);
-        ib2 = (Button)findViewById(R.id.D4);
-        ib3 = (Button)findViewById(R.id.Db4);
-        ib4 = (Button)findViewById(R.id.Eb4);
-        ib5 = (Button)findViewById(R.id.E4);
-        ib6 = (Button)findViewById(R.id.F4);
-        ib7 = (Button)findViewById(R.id.Gb4);
-        ib8 = (Button)findViewById(R.id.G4);
-        ib9 = (Button)findViewById(R.id.Ab4);
-        ib10 = (Button)findViewById(R.id.A4);
-        ib11 = (Button)findViewById(R.id.Bb4);
-        ib12 = (Button)findViewById(R.id.B4);
-        ib13 = (Button)findViewById(R.id.C5);
-        ib40 = (Button)findViewById(R.id.Db51);
-        ib41 = (Button)findViewById(R.id.D51);
+        Button ib1 = (Button)findViewById(R.id.C4);
+        Button ib2 = (Button)findViewById(R.id.D4);
+        Button ib3 = (Button)findViewById(R.id.Db4);
+        Button ib4 = (Button)findViewById(R.id.Eb4);
+        Button ib5 = (Button)findViewById(R.id.E4);
+        Button ib6 = (Button)findViewById(R.id.F4);
+        Button ib7 = (Button)findViewById(R.id.Gb4);
+        Button ib8 = (Button)findViewById(R.id.G4);
+        Button ib9 = (Button)findViewById(R.id.Ab4);
+        Button ib10 = (Button)findViewById(R.id.A4);
+        Button ib11 = (Button)findViewById(R.id.Bb4);
+        Button ib12 = (Button)findViewById(R.id.B4);
+        Button ib13 = (Button)findViewById(R.id.C5);
+        Button ib40 = (Button)findViewById(R.id.Db51);
+        Button ib41 = (Button)findViewById(R.id.D51);
 
         //higher_octave
 
-        ib14 = (Button)findViewById(R.id.C51);
-        ib15 = (Button)findViewById(R.id.D5);
-        ib16 = (Button)findViewById(R.id.Db5);
-        ib17 = (Button)findViewById(R.id.Eb5);
-        ib18 = (Button)findViewById(R.id.E5);
-        ib19 = (Button)findViewById(R.id.F5);
-        ib20 = (Button)findViewById(R.id.Gb5);
-        ib21 = (Button)findViewById(R.id.G5);
-        ib22 = (Button)findViewById(R.id.Ab5);
-        ib23 = (Button)findViewById(R.id.A5);
-        ib24 = (Button)findViewById(R.id.Bb5);
-        ib25 = (Button)findViewById(R.id.B5);
-        ib26 = (Button)findViewById(R.id.C6);
+        Button ib14 = (Button)findViewById(R.id.C51);
+        Button ib15 = (Button)findViewById(R.id.D5);
+        Button ib16 = (Button)findViewById(R.id.Db5);
+        Button ib17 = (Button)findViewById(R.id.Eb5);
+        Button ib18 = (Button)findViewById(R.id.E5);
+        Button ib19 = (Button)findViewById(R.id.F5);
+        Button ib20 = (Button)findViewById(R.id.Gb5);
+        Button ib21 = (Button)findViewById(R.id.G5);
+        Button ib22 = (Button)findViewById(R.id.Ab5);
+        Button ib23 = (Button)findViewById(R.id.A5);
+        Button ib24 = (Button)findViewById(R.id.Bb5);
+        Button ib25 = (Button)findViewById(R.id.B5);
+        Button ib26 = (Button)findViewById(R.id.C6);
 
         //lower_octave
 
-        ib27 = (Button)findViewById(R.id.C3);
-        ib28 = (Button)findViewById(R.id.D3);
-        ib29 = (Button)findViewById(R.id.Db3);
-        ib30 = (Button)findViewById(R.id.Eb3);
-        ib31 = (Button)findViewById(R.id.E3);
-        ib32 = (Button)findViewById(R.id.F3);
-        ib33 = (Button)findViewById(R.id.Gb3);
-        ib34 = (Button)findViewById(R.id.G3);
-        ib35 = (Button)findViewById(R.id.Ab3);
-        ib36 = (Button)findViewById(R.id.A3);
-        ib37 = (Button)findViewById(R.id.Bb3);
-        ib38 = (Button)findViewById(R.id.B3);
-        ib39 = (Button)findViewById(R.id.C41);
+        Button ib27 = (Button)findViewById(R.id.C3);
+        Button ib28 = (Button)findViewById(R.id.D3);
+        Button ib29 = (Button)findViewById(R.id.Db3);
+        Button ib30 = (Button)findViewById(R.id.Eb3);
+        Button ib31 = (Button)findViewById(R.id.E3);
+        Button ib32 = (Button)findViewById(R.id.F3);
+        Button ib33 = (Button)findViewById(R.id.Gb3);
+        Button ib34 = (Button)findViewById(R.id.G3);
+        Button ib35 = (Button)findViewById(R.id.Ab3);
+        Button ib36 = (Button)findViewById(R.id.A3);
+        Button ib37 = (Button)findViewById(R.id.Bb3);
+        Button ib38 = (Button)findViewById(R.id.B3);
+        Button ib39 = (Button)findViewById(R.id.C41);
 
-        soundPool = new SoundPool(99, AudioManager.STREAM_MUSIC, 0);
+        soundPool = PianoSoundPool.create();
 
         soundID_C4 = soundPool.load(this, R.raw.c4, 1);
         soundID_Db4 = soundPool.load(this, R.raw.db4, 1);
@@ -295,7 +250,7 @@ public class Lesson_3Activity extends AppCompatActivity implements OnTouchListen
         lower_octave = (Button)findViewById(R.id.low_octave);
 
         recordButton = (Button)findViewById(R.id.record);
-        FILE = Environment.getExternalStorageDirectory().getAbsolutePath() + "/tempRecord.3gp";
+        
 
     }
 
@@ -826,215 +781,30 @@ public class Lesson_3Activity extends AppCompatActivity implements OnTouchListen
     }
     @Override
     public void onClick(View v) {
-        if (v == next){
+        if (v == next) {
             counter++;
-            if( counter > 17){
+            if (counter > 15) {
                 //open next intent for next lesson
-                counter = 17;
-                Intent intent = new Intent(this, Lesson_4Activity.class);
+                counter = 15;
+                Intent intent = new Intent(this, Lesson_5Activity.class);
                 startActivity(intent);
-            }
-            else //if (counter <= 5 || counter >= 0)
+            } else //if (counter <= 5 || counter >= 0)
                 viewFlipper.showNext();
-
-            if(counter == 9){
-
-                ib27.setBackgroundResource(R.drawable.red_key);
-
-                ib27.setOnTouchListener(new OnTouchListener() {
-                    @Override
-                    public boolean onTouch(View v, MotionEvent event) {
-                        int action = event.getAction();
-                        switch(action) {
-                            case MotionEvent.ACTION_DOWN:
-                                v.setPressed(true);
-                                soundPool.play(soundID_C3, 1, 1, 0, 0, 1);
-                                ib27.setBackgroundResource(R.drawable.white_selector);
-                                ib28.setBackgroundResource(R.drawable.red_key);
-                                break;
-                            case MotionEvent.ACTION_UP:
-                                v.setPressed(false);
-                                ib27.setBackgroundResource(R.drawable.white_selector);
-                                break;
-                        }
-                        return true;
-                    }
-
-                });
-                ib28.setOnTouchListener(new OnTouchListener() {
-                    @Override
-                    public boolean onTouch(View v, MotionEvent event) {
-                        int action = event.getAction();
-                        switch(action) {
-                            case MotionEvent.ACTION_DOWN:
-                                soundPool.play(soundID_D3, 1, 1, 0, 0, 1);
-                                ib28.setBackgroundResource(R.drawable.white_selector);
-                                ib31.setBackgroundResource(R.drawable.red_key);
-                                break;
-                            case MotionEvent.ACTION_UP:
-                                v.setPressed(false);
-                                ib28.setBackgroundResource(R.drawable.white_selector);
-                                break;
-                        }
-                        return true;
-                    }
-
-                });
-
-                ib31.setOnTouchListener(new OnTouchListener() {
-                    @Override
-                    public boolean onTouch(View v, MotionEvent event) {
-                        int action = event.getAction();
-                        switch(action) {
-                            case MotionEvent.ACTION_DOWN:
-                                v.setPressed(true);
-                                soundPool.play(soundID_E3, 1, 1, 0, 0, 1);
-                                ib31.setBackgroundResource(R.drawable.white_selector);
-                                ib32.setBackgroundResource(R.drawable.red_key);
-                                break;
-                            case MotionEvent.ACTION_UP:
-                                v.setPressed(false);
-                                ib31.setBackgroundResource(R.drawable.white_selector);
-                                break;
-                        }
-                        return true;
-                    }
-
-                });
-                ib32.setOnTouchListener(new OnTouchListener() {
-                    @Override
-                    public boolean onTouch(View v, MotionEvent event) {
-                        int action = event.getAction();
-                        switch(action) {
-                            case MotionEvent.ACTION_DOWN:
-                                v.setPressed(true);
-                                soundPool.play(soundID_F3, 1, 1, 0, 0, 1);
-                                ib32.setBackgroundResource(R.drawable.white_selector);
-                                ib34.setBackgroundResource(R.drawable.red_key);
-                                break;
-                            case MotionEvent.ACTION_UP:
-                                v.setPressed(false);
-                                ib32.setBackgroundResource(R.drawable.white_selector);
-                                break;
-                        }
-                        return true;
-                    }
-
-                });
-
-                ib34.setOnTouchListener(new OnTouchListener() {
-                    @Override
-                    public boolean onTouch(View v, MotionEvent event) {
-                        int action = event.getAction();
-                        switch(action) {
-                            case MotionEvent.ACTION_DOWN:
-                                v.setPressed(true);
-                                soundPool.play(soundID_G3, 1, 1, 0, 0, 1);
-                                ib34.setBackgroundResource(R.drawable.white_selector);
-                                break;
-                            case MotionEvent.ACTION_UP:
-                                v.setPressed(false);
-                                ib34.setBackgroundResource(R.drawable.white_selector);
-                                break;
-                        }
-                        return true;
-                    }
-
-                });}
-            if(counter != 9){
-                ib27.setOnTouchListener(new OnTouchListener() {
-                    @Override
-                    public boolean onTouch(View v, MotionEvent event) {
-                        int action = event.getAction();
-                        switch(action) {
-                            case MotionEvent.ACTION_DOWN:
-                                v.setPressed(true);
-                                soundPool.play(soundID_C3, 1, 1, 0, 0, 1);
-                                ib27.setBackgroundResource(R.drawable.white_selector);
-                                break;
-                            case MotionEvent.ACTION_UP:
-                                v.setPressed(false);
-                                ib27.setBackgroundResource(R.drawable.white_selector);
-                                break;
-                        }
-                        return true;
-                    }
-
-                });
-                ib28.setOnTouchListener(new OnTouchListener() {
-                    @Override
-                    public boolean onTouch(View v, MotionEvent event) {
-                        int action = event.getAction();
-                        switch(action) {
-                            case MotionEvent.ACTION_DOWN:
-                                soundPool.play(soundID_D3, 1, 1, 0, 0, 1);
-                                ib28.setBackgroundResource(R.drawable.white_selector);
-                                break;
-                            case MotionEvent.ACTION_UP:
-                                v.setPressed(false);
-                                ib28.setBackgroundResource(R.drawable.white_selector);
-                                break;
-                        }
-                        return true;
-                    }
-
-                });
-
-                ib31.setOnTouchListener(new OnTouchListener() {
-                    @Override
-                    public boolean onTouch(View v, MotionEvent event) {
-                        int action = event.getAction();
-                        switch(action) {
-                            case MotionEvent.ACTION_DOWN:
-                                v.setPressed(true);
-                                soundPool.play(soundID_E3, 1, 1, 0, 0, 1);
-                                ib31.setBackgroundResource(R.drawable.white_selector);
-                                break;
-                            case MotionEvent.ACTION_UP:
-                                v.setPressed(false);
-                                ib31.setBackgroundResource(R.drawable.white_selector);
-                                break;
-                        }
-                        return true;
-                    }
-
-                });
-                ib32.setOnTouchListener(new OnTouchListener() {
-                    @Override
-                    public boolean onTouch(View v, MotionEvent event) {
-                        int action = event.getAction();
-                        switch(action) {
-                            case MotionEvent.ACTION_DOWN:
-                                v.setPressed(true);
-                                soundPool.play(soundID_F3, 1, 1, 0, 0, 1);
-                                ib32.setBackgroundResource(R.drawable.white_selector);
-                                break;
-                            case MotionEvent.ACTION_UP:
-                                v.setPressed(false);
-                                ib32.setBackgroundResource(R.drawable.white_selector);
-                                break;
-                        }
-                        return true;
-                    }
-
-                });}
-            if (counter == 17){
-                mediaPlayer = MediaPlayer.create(this, R.raw.clap1);
-                mediaPlayer.start();
-            }
-
-        }
-        else if (v == previous){
+        } else if (v == previous) {
             counter--;
-            if (counter <= 0){
+            if (counter <= 0) {
                 //reopen current intent
                 counter = 1;
 
-            }else if ( counter >= 0)
+            } else if (counter >= 0)
                 viewFlipper.showPrevious();
         }
-
+        if (counter == 15){
+            mediaPlayer = MediaPlayer.create(this, R.raw.clap1);
+            mediaPlayer.start();
+        }
     }
+
     public void stop(){
         if(mediaPlayer != null){
             mediaPlayer.release();
@@ -1062,7 +832,9 @@ public class Lesson_3Activity extends AppCompatActivity implements OnTouchListen
     public void record(View view){
 
         if (recordButton.getText().toString().equals("Record")){
-            startRecord();
+            if (!beginRecordingIfPermitted(recordButton)) {
+                return;
+            }
             recordButton.setText("Stop");
             Toast.makeText(this, "Recording Audio", Toast.LENGTH_SHORT).show();
         }
@@ -1085,32 +857,15 @@ public class Lesson_3Activity extends AppCompatActivity implements OnTouchListen
     }
 
     public void startRecord(){
-
-        mediaRecorder = new MediaRecorder();
-        mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-        mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-        mediaRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
-        mediaRecorder.setOutputFile(FILE);
-
-        try {
-            mediaRecorder.prepare();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        mediaRecorder.start();
+        recordingHelper.startRecording();
     }
 
     public void stopRecord(){
-        mediaRecorder.stop();
-        mediaRecorder.release();
-        mediaRecorder = null;
+        recordingHelper.stopRecording();
     }
 
     public void playRecord() throws IOException {
-        mediaPlayer = new MediaPlayer();
-        mediaPlayer.setDataSource(FILE);
-        mediaPlayer.prepare();
-        mediaPlayer.start();
+        recordingHelper.playRecording();
     }
 
 
@@ -1119,4 +874,14 @@ public class Lesson_3Activity extends AppCompatActivity implements OnTouchListen
 //        mediaPlayer = MediaPlayer.create(this, R.raw.c4);
 //        mediaPlayer.start();
 //    }
+
+    @Override
+    protected void onDestroy() {
+        if (soundPool != null) {
+            soundPool.release();
+            soundPool = null;
+        }
+        stop();
+        super.onDestroy();
+    }
 }
