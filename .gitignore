@@ -1,12 +1,93 @@
+# Built application files
+*.apk
+*.ap_
+*.aab
+
+# Files for the ART/Dalvik VM
+*.dex
+
+# Java class files
+*.class
+
+# Generated files
+bin/
+gen/
+out/
+release/
+
+# Gradle files
+.gradle/
+build/
+**/build/
+
+# Local configuration (SDK path — machine-specific)
+local.properties
+
+# ProGuard
+proguard/
+
+# Log files
+*.log
+
+# Android Studio / IntelliJ
 *.iml
-.gradle
-/local.properties
-/.idea/workspace.xml
-/.idea/libraries
-.DS_Store
-/build
-/app/build
-/captures
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/shelf/
+.idea/assetWizardSettings.xml
+.idea/dictionaries
+.idea/libraries
+.idea/caches/
+.idea/navEditor.xml
+.idea/deploymentTargetSelector.xml
+.idea/deviceManager.xml
+.idea/androidProxies.xml
+.idea/appInsightsSettings.xml
+.idea/deploymentTargetDropDown.xml
+.idea/misc.xml
+*.ipr
+*.iws
+
+# Keystore / signing secrets (never commit)
 *.jks
 *.keystore
 keystore.properties
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Android Studio Navigation editor captures
+.navigation/
+
+# Captures
+captures/
+
+# External native build
+.externalNativeBuild/
+.cxx/
+
+# NDK
+obj/
+
+# Google Services (if added later with secrets)
+# google-services.json
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+fastlane/readme.md
+
+# Version control backup / patch files
+*.orig
+*.rej
+*~
+
+# Lint
+lint/intermediates/
+lint/generated/
+lint/outputs/
+lint/tmp/
