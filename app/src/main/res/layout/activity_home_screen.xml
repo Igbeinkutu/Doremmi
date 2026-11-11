@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.emerson.piano.home_screen"
+    tools:context="com.ebisoft.doremmi.home_screen"
     android:background="@drawable/images9">
 
     <Button

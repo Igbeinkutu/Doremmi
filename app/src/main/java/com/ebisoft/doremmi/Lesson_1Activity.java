@@ -1,5 +1,6 @@
-package com.emerson.piano;
+package com.ebisoft.doremmi;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.media.AudioAttributes;
 import android.media.MediaPlayer;
@@ -18,8 +19,7 @@ import android.widget.ViewFlipper;
 import java.io.IOException;
 import java.util.HashMap;
 
-
-public class MainActivity extends PianoBaseActivity implements OnTouchListener, View.OnClickListener {
+public class Lesson_1Activity extends PianoBaseActivity implements OnTouchListener, View.OnClickListener {
 
     ViewFlipper viewFlipper;
     ViewFlipper keyboardFlipper;
@@ -41,6 +41,16 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
 
     AudioAttributes attributes;
     AudioAttributes.Builder attributesBuilder;
+
+    Button C4_lightable;
+    Button D4_lightable;
+    Button E4_lightable;
+    Button F4_lightable;
+    Button G4_lightable;
+    Button A4_lightable;
+    Button B4_lightable;
+    Button C5_lightable;
+
 
     int soundID_C4;
     int soundID_Db4;
@@ -91,7 +101,7 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_lesson_1);
 
         Button ib1 = (Button)findViewById(R.id.C4);
         Button ib2 = (Button)findViewById(R.id.D4);
@@ -250,6 +260,17 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
 
         recordButton = (Button)findViewById(R.id.record);
         
+
+        //lightable keys
+        C4_lightable = (Button)findViewById(R.id.C4);
+        D4_lightable = (Button)findViewById(R.id.D4);
+        E4_lightable = (Button)findViewById(R.id.E4);
+        F4_lightable = (Button)findViewById(R.id.F4);
+        G4_lightable = (Button)findViewById(R.id.G4);
+        A4_lightable = (Button)findViewById(R.id.A4);
+        B4_lightable = (Button)findViewById(R.id.B4);
+        C5_lightable = (Button)findViewById(R.id.C5);
+
 
     }
 
@@ -456,7 +477,7 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
                     mediaPlayer.release();
                 }
 
-                //upper octave
+            //upper octave
         }
         else if (id == R.id.C51) {
 
@@ -804,12 +825,58 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
     public void onClick(View v) {
         if (v == next){
             counter++;
-            if( counter > 5){
+            if( counter > 35){
                 //open next intent for next lesson
-                counter = 5;
+                counter = 35;
+//                Intent intent = new Intent(this, Lesson2Game.class);
+//                startActivity(intent);
             }
             else //if (counter <= 5 || counter >= 0)
                 viewFlipper.showNext();
+
+            //light up keys
+            switch (counter){
+
+                case 8:
+                    C4_lightable.setBackgroundResource(R.drawable.red_key);
+                    break;
+                case 9:
+                    C4_lightable.setBackgroundResource(R.drawable.white_selector);
+                    D4_lightable.setBackgroundResource(R.drawable.red_key);
+                    break;
+                case 10:
+                    D4_lightable.setBackgroundResource(R.drawable.white_selector);
+                    E4_lightable.setBackgroundResource(R.drawable.red_key);
+                    break;
+                case 11:
+                    E4_lightable.setBackgroundResource(R.drawable.white_selector);
+                    F4_lightable.setBackgroundResource(R.drawable.red_key);
+                    break;
+                case 12:
+                F4_lightable.setBackgroundResource(R.drawable.white_selector);
+                G4_lightable.setBackgroundResource(R.drawable.red_key);
+                break;
+                case 13:
+                    G4_lightable.setBackgroundResource(R.drawable.white_selector);
+                    A4_lightable.setBackgroundResource(R.drawable.red_key);
+                    break;
+                case 14:
+                    A4_lightable.setBackgroundResource(R.drawable.white_selector);
+                    B4_lightable.setBackgroundResource(R.drawable.red_key);
+                    break;
+                case 15:
+                    B4_lightable.setBackgroundResource(R.drawable.white_selector);
+                    C5_lightable.setBackgroundResource(R.drawable.red_key);
+                    break;
+                case 16:
+                    C5_lightable.setBackgroundResource(R.drawable.white_selector);
+                    break;
+            }
+            if (counter == 35){
+                mediaPlayer = MediaPlayer.create(this, R.raw.clap1);
+                mediaPlayer.start();
+            }
+
         }
         else if (v == previous){
             counter--;
@@ -819,6 +886,45 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
 
             }else if ( counter >= 0)
                 viewFlipper.showPrevious();
+
+            //light up key c
+            switch (counter){
+
+                case 7:
+                    C4_lightable.setBackgroundResource(R.drawable.white_selector);
+                    break;
+                case 8:
+                    C4_lightable.setBackgroundResource(R.drawable.red_key);
+                    D4_lightable.setBackgroundResource(R.drawable.white_selector);
+                    break;
+                case 9:
+                    D4_lightable.setBackgroundResource(R.drawable.red_key);
+                    E4_lightable.setBackgroundResource(R.drawable.white_selector);
+                    break;
+                case 10:
+                    E4_lightable.setBackgroundResource(R.drawable.red_key);
+                    F4_lightable.setBackgroundResource(R.drawable.white_selector);
+                    break;
+                case 11:
+                    F4_lightable.setBackgroundResource(R.drawable.red_key);
+                    G4_lightable.setBackgroundResource(R.drawable.white_selector);
+                    break;
+                case 12:
+                    G4_lightable.setBackgroundResource(R.drawable.red_key);
+                    A4_lightable.setBackgroundResource(R.drawable.white_selector);
+                    break;
+                case 13:
+                    A4_lightable.setBackgroundResource(R.drawable.red_key);
+                    B4_lightable.setBackgroundResource(R.drawable.white_selector);
+                    break;
+                case 14:
+                    B4_lightable.setBackgroundResource(R.drawable.red_key);
+                    C5_lightable.setBackgroundResource(R.drawable.white_selector);
+                    break;
+                case 15:
+                    C5_lightable.setBackgroundResource(R.drawable.red_key);
+                    break;
+            }
         }
 
     }
@@ -844,7 +950,7 @@ public class MainActivity extends PianoBaseActivity implements OnTouchListener, 
             keyboard_Counter = 0;
         }
         else
-        keyboardFlipper.showPrevious();
+            keyboardFlipper.showPrevious();
     }
 
     public void record(View view){

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Piano Lessons</string>
+    <string name="app_name">Doremmi</string>
     <string name="rotate_landscape_hint">This screen works best in landscape. Please rotate your device.</string>
     <string name="recording_audio">Recording Audio</string>
     <string name="recording_failed">Could not start recording</string>

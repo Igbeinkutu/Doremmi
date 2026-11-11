@@ -1,4 +1,4 @@
-package com.emerson.piano;
+package com.ebisoft.doremmi;
 
 import android.media.AudioAttributes;
 import android.media.SoundPool;

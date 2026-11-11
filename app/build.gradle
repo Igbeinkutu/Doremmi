@@ -9,11 +9,11 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    namespace 'com.emerson.piano'
+    namespace 'com.ebisoft.doremmi'
     compileSdk 36
 
     defaultConfig {
-        applicationId "com.emerson.piano"
+        applicationId "com.ebisoft.doremmi"
         minSdk 24
         targetSdk 36
         versionCode 1

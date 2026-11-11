@@ -1,4 +1,4 @@
-package com.emerson.piano;
+package com.ebisoft.doremmi;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -10,8 +10,10 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
+import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
@@ -20,7 +22,7 @@ import java.io.IOException;
 import java.util.HashMap;
 
 
-public class Lesson_3Activity extends PianoBaseActivity implements OnTouchListener, View.OnClickListener {
+public class Lesson_2Activity extends PianoBaseActivity implements OnTouchListener, View.OnClickListener {
 
     ViewFlipper viewFlipper;
     ViewFlipper keyboardFlipper;
@@ -42,6 +44,24 @@ public class Lesson_3Activity extends PianoBaseActivity implements OnTouchListen
 
     AudioAttributes attributes;
     AudioAttributes.Builder attributesBuilder;
+
+    Button C4_lightable;
+    Button D4_lightable;
+    Button E4_lightable;
+    Button F4_lightable;
+    Button G4_lightable;
+    Button A4_lightable;
+    Button B4_lightable;
+    Button C5_lightable;
+
+    Button C3_lightable;
+    Button D3_lightable;
+    Button E3_lightable;
+    Button F3_lightable;
+    Button G3_lightable;
+    Button A3_lightable;
+    Button B3_lightable;
+    Button C41_lightable;
 
     Button ib1;
     Button ib2;
@@ -134,7 +154,7 @@ public class Lesson_3Activity extends PianoBaseActivity implements OnTouchListen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lesson_3);
+        setContentView(R.layout.activity_lesson_2);
 
         ib1 = (Button)findViewById(R.id.C4);
         ib2 = (Button)findViewById(R.id.D4);
@@ -294,6 +314,24 @@ public class Lesson_3Activity extends PianoBaseActivity implements OnTouchListen
         recordButton = (Button)findViewById(R.id.record);
         
 
+        //lightable keys
+        C4_lightable = (Button)findViewById(R.id.C4);
+        D4_lightable = (Button)findViewById(R.id.D4);
+        E4_lightable = (Button)findViewById(R.id.E4);
+        F4_lightable = (Button)findViewById(R.id.F4);
+        G4_lightable = (Button)findViewById(R.id.G4);
+        A4_lightable = (Button)findViewById(R.id.A4);
+        B4_lightable = (Button)findViewById(R.id.B4);
+        C5_lightable = (Button)findViewById(R.id.C5);
+
+        C3_lightable = (Button)findViewById(R.id.C3);
+        D3_lightable = (Button)findViewById(R.id.D3);
+        E3_lightable = (Button)findViewById(R.id.E3);
+        F3_lightable = (Button)findViewById(R.id.F3);
+        G3_lightable = (Button)findViewById(R.id.G3);
+        A3_lightable = (Button)findViewById(R.id.A3);
+        B3_lightable = (Button)findViewById(R.id.B3);
+        C41_lightable = (Button)findViewById(R.id.C41);
     }
 
     @Override
@@ -306,9 +344,12 @@ public class Lesson_3Activity extends PianoBaseActivity implements OnTouchListen
                 if(action == MotionEvent.ACTION_DOWN) {
                     v.setPressed(true);
                     soundPool.play(soundID_C4, 1, 1, 0, 0, 1);
-//                    mediaPlayer = MediaPlayer.create(this, R.raw.c4);
-//                    mediaPlayer.seekTo(0);
-//                    mediaPlayer.start();
+
+
+//                    if (counter == 5){
+//                        ib1.setBackgroundResource(R.drawable.white_selector);
+//                        ib2.setBackgroundResource(R.drawable.red_key);
+//                    }
 
                 }
                 else if (action == MotionEvent.ACTION_UP){
@@ -841,23 +882,208 @@ public class Lesson_3Activity extends PianoBaseActivity implements OnTouchListen
                 }
         }
 
-        return true;
+
+                return true;
+
     }
     @Override
     public void onClick(View v) {
         if (v == next){
             counter++;
-            if( counter > 17){
+            if( counter > 40){
                 //open next intent for next lesson
-                counter = 17;
-                Intent intent = new Intent(this, Lesson_4Activity.class);
+                counter = 40;
+                Intent intent = new Intent(this, Lesson_3Activity.class);
                 startActivity(intent);
             }
-            else //if (counter <= 5 || counter >= 0)
+            else
                 viewFlipper.showNext();
 
-            if(counter == 9){
+            //fingering exercise
+//            switch (counter){
+//                case 5:
+            if(counter == 5){
+                    ib1.setBackgroundResource(R.drawable.red_key);
 
+                    ib1.setOnTouchListener(new OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        int action = event.getAction();
+                        switch(action) {
+                            case MotionEvent.ACTION_DOWN:
+                                v.setPressed(true);
+                                soundPool.play(soundID_C4, 1, 1, 0, 0, 1);
+                                ib1.setBackgroundResource(R.drawable.white_selector);
+                                ib2.setBackgroundResource(R.drawable.red_key);
+                                break;
+                            case MotionEvent.ACTION_UP:
+                                v.setPressed(false);
+                                ib1.setBackgroundResource(R.drawable.white_selector);
+                                break;
+                        }
+                        return true;
+                    }
+
+                    });
+                    ib2.setOnTouchListener(new OnTouchListener() {
+                        @Override
+                        public boolean onTouch(View v, MotionEvent event) {
+                            int action = event.getAction();
+                            switch(action) {
+                                case MotionEvent.ACTION_DOWN:
+                                    soundPool.play(soundID_D4, 1, 1, 0, 0, 1);
+                                    ib2.setBackgroundResource(R.drawable.white_selector);
+                                    ib5.setBackgroundResource(R.drawable.red_key);
+                                    break;
+                                case MotionEvent.ACTION_UP:
+                                    v.setPressed(false);
+                                    ib2.setBackgroundResource(R.drawable.white_selector);
+                                    break;
+                            }
+                            return true;
+                        }
+
+                    });
+
+                    ib5.setOnTouchListener(new OnTouchListener() {
+                        @Override
+                        public boolean onTouch(View v, MotionEvent event) {
+                            int action = event.getAction();
+                            switch(action) {
+                                case MotionEvent.ACTION_DOWN:
+                                    v.setPressed(true);
+                                    soundPool.play(soundID_E4, 1, 1, 0, 0, 1);
+                                    ib5.setBackgroundResource(R.drawable.white_selector);
+                                    ib6.setBackgroundResource(R.drawable.red_key);
+                                    break;
+                                case MotionEvent.ACTION_UP:
+                                    v.setPressed(false);
+                                    ib5.setBackgroundResource(R.drawable.white_selector);
+                                    break;
+                            }
+                            return true;
+                        }
+
+                    });
+                    ib6.setOnTouchListener(new OnTouchListener() {
+                        @Override
+                        public boolean onTouch(View v, MotionEvent event) {
+                            int action = event.getAction();
+                            switch(action) {
+                                case MotionEvent.ACTION_DOWN:
+                                    v.setPressed(true);
+                                    soundPool.play(soundID_F4, 1, 1, 0, 0, 1);
+                                    ib6.setBackgroundResource(R.drawable.white_selector);
+                                    ib8.setBackgroundResource(R.drawable.red_key);
+                                    break;
+                                case MotionEvent.ACTION_UP:
+                                    v.setPressed(false);
+                                    ib6.setBackgroundResource(R.drawable.white_selector);
+                                    break;
+                            }
+                            return true;
+                        }
+
+                    });
+
+                    ib8.setOnTouchListener(new OnTouchListener() {
+                        @Override
+                        public boolean onTouch(View v, MotionEvent event) {
+                            int action = event.getAction();
+                            switch(action) {
+                                case MotionEvent.ACTION_DOWN:
+                                    v.setPressed(true);
+                                    soundPool.play(soundID_G4, 1, 1, 0, 0, 1);
+                                    ib8.setBackgroundResource(R.drawable.white_selector);
+                                    break;
+                                case MotionEvent.ACTION_UP:
+                                    v.setPressed(false);
+                                    ib8.setBackgroundResource(R.drawable.white_selector);
+                                    break;
+                            }
+                            return true;
+                        }
+
+                    });}
+
+            if(counter != 5){
+                ib1.setOnTouchListener(new OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        int action = event.getAction();
+                        switch(action) {
+                            case MotionEvent.ACTION_DOWN:
+                                v.setPressed(true);
+                                soundPool.play(soundID_C4, 1, 1, 0, 0, 1);
+                                ib1.setBackgroundResource(R.drawable.white_selector);
+                                break;
+                            case MotionEvent.ACTION_UP:
+                                v.setPressed(false);
+                                ib1.setBackgroundResource(R.drawable.white_selector);
+                                break;
+                        }
+                        return true;
+                    }
+
+                });
+                ib2.setOnTouchListener(new OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        int action = event.getAction();
+                        switch(action) {
+                            case MotionEvent.ACTION_DOWN:
+                                soundPool.play(soundID_D4, 1, 1, 0, 0, 1);
+                                ib2.setBackgroundResource(R.drawable.white_selector);
+                                break;
+                            case MotionEvent.ACTION_UP:
+                                v.setPressed(false);
+                                ib2.setBackgroundResource(R.drawable.white_selector);
+                                break;
+                        }
+                        return true;
+                    }
+
+                });
+
+                ib5.setOnTouchListener(new OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        int action = event.getAction();
+                        switch(action) {
+                            case MotionEvent.ACTION_DOWN:
+                                v.setPressed(true);
+                                soundPool.play(soundID_E4, 1, 1, 0, 0, 1);
+                                ib5.setBackgroundResource(R.drawable.white_selector);
+                                break;
+                            case MotionEvent.ACTION_UP:
+                                v.setPressed(false);
+                                ib5.setBackgroundResource(R.drawable.white_selector);
+                                break;
+                        }
+                        return true;
+                    }
+
+                });
+                ib6.setOnTouchListener(new OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        int action = event.getAction();
+                        switch(action) {
+                            case MotionEvent.ACTION_DOWN:
+                                v.setPressed(true);
+                                soundPool.play(soundID_F4, 1, 1, 0, 0, 1);
+                                ib6.setBackgroundResource(R.drawable.white_selector);
+                                break;
+                            case MotionEvent.ACTION_UP:
+                                v.setPressed(false);
+                                ib6.setBackgroundResource(R.drawable.white_selector);
+                                break;
+                        }
+                        return true;
+                    }
+
+                });}
+            if(counter == 7){
                 ib27.setBackgroundResource(R.drawable.red_key);
 
                 ib27.setOnTouchListener(new OnTouchListener() {
@@ -960,7 +1186,8 @@ public class Lesson_3Activity extends PianoBaseActivity implements OnTouchListen
                     }
 
                 });}
-            if(counter != 9){
+
+            if(counter != 7){
                 ib27.setOnTouchListener(new OnTouchListener() {
                     @Override
                     public boolean onTouch(View v, MotionEvent event) {
@@ -1037,11 +1264,136 @@ public class Lesson_3Activity extends PianoBaseActivity implements OnTouchListen
                     }
 
                 });}
-            if (counter == 17){
-                mediaPlayer = MediaPlayer.create(this, R.raw.clap1);
+
+            if(counter == 33){
+                ib1.setBackgroundResource(R.drawable.red_key);
+
+                ib1.setOnTouchListener(new OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        int action = event.getAction();
+                        switch(action) {
+                            case MotionEvent.ACTION_DOWN:
+                                v.setPressed(true);
+                                soundPool.play(soundID_C4, 1, 1, 0, 0, 1);
+                                ib1.setBackgroundResource(R.drawable.white_selector);
+                                ib2.setBackgroundResource(R.drawable.red_key);
+                                break;
+                            case MotionEvent.ACTION_UP:
+                                v.setPressed(false);
+                                ib1.setBackgroundResource(R.drawable.white_selector);
+                                break;
+                        }
+                        return true;
+                    }
+
+                });
+                ib2.setOnTouchListener(new OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        int action = event.getAction();
+                        switch(action) {
+                            case MotionEvent.ACTION_DOWN:
+                                v.setPressed(true);
+                                soundPool.play(soundID_D4, 1, 1, 0, 0, 1);
+                                ib2.setBackgroundResource(R.drawable.white_selector);
+                                ib5.setBackgroundResource(R.drawable.red_key);
+                                break;
+                            case MotionEvent.ACTION_UP:
+                                v.setPressed(false);
+                                ib2.setBackgroundResource(R.drawable.white_selector);
+                                break;
+                        }
+                        return true;
+                    }
+
+                });
+
+                ib5.setOnTouchListener(new OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        int action = event.getAction();
+                        switch(action) {
+                            case MotionEvent.ACTION_DOWN:
+                                v.setPressed(true);
+                                soundPool.play(soundID_E4, 1, 1, 0, 0, 1);
+                                ib5.setBackgroundResource(R.drawable.white_selector);
+                                ib1.setBackgroundResource(R.drawable.red_key);
+                                break;
+                            case MotionEvent.ACTION_UP:
+                                v.setPressed(false);
+                                ib5.setBackgroundResource(R.drawable.white_selector);
+                                break;
+                        }
+                        return true;
+                    }
+
+                });
+                ib1.setOnTouchListener(new OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        int action = event.getAction();
+                        switch(action) {
+                            case MotionEvent.ACTION_DOWN:
+                                v.setPressed(true);
+                                soundPool.play(soundID_C4, 1, 1, 0, 0, 1);
+                                ib1.setBackgroundResource(R.drawable.white_selector);
+                                ib2.setBackgroundResource(R.drawable.red_key);
+                                break;
+                            case MotionEvent.ACTION_UP:
+                                v.setPressed(false);
+                                ib1.setBackgroundResource(R.drawable.white_selector);
+                                break;
+                        }
+                        return true;
+                    }
+
+                });
+                ib2.setOnTouchListener(new OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        int action = event.getAction();
+                        switch(action) {
+                            case MotionEvent.ACTION_DOWN:
+                                soundPool.play(soundID_D4, 1, 1, 0, 0, 1);
+                                ib2.setBackgroundResource(R.drawable.white_selector);
+                                ib5.setBackgroundResource(R.drawable.red_key);
+                                break;
+                            case MotionEvent.ACTION_UP:
+                                v.setPressed(false);
+                                ib2.setBackgroundResource(R.drawable.white_selector);
+                                break;
+                        }
+                        return true;
+                    }
+
+                });
+
+                ib5.setOnTouchListener(new OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        int action = event.getAction();
+                        switch (action) {
+                            case MotionEvent.ACTION_DOWN:
+                                v.setPressed(true);
+                                soundPool.play(soundID_E4, 1, 1, 0, 0, 1);
+                                ib5.setBackgroundResource(R.drawable.white_selector);
+                                ib1.setBackgroundResource(R.drawable.red_key);
+                                break;
+                            case MotionEvent.ACTION_UP:
+                                v.setPressed(false);
+                                ib5.setBackgroundResource(R.drawable.white_selector);
+                                break;
+                        }
+                        return true;
+                           }
+
+                });
+            }
+            if (counter == 40){
+                mediaPlayer = MediaPlayer.create(this, R.raw.crowd_applause);
                 mediaPlayer.start();
             }
-
         }
         else if (v == previous){
             counter--;
@@ -1051,9 +1403,21 @@ public class Lesson_3Activity extends PianoBaseActivity implements OnTouchListen
 
             }else if ( counter >= 0)
                 viewFlipper.showPrevious();
+            if(counter == 5){
+                ib1.setBackgroundResource(R.drawable.red_key);
+            }if (counter != 5){
+                ib1.setBackgroundResource(R.drawable.white_selector);
+            }
+            if (counter == 7){
+                ib27.setBackgroundResource(R.drawable.red_key);
+            }
+            if (counter != 7){
+                ib27.setBackgroundResource(R.drawable.white_selector);
+            }
         }
 
     }
+
     public void stop(){
         if(mediaPlayer != null){
             mediaPlayer.release();

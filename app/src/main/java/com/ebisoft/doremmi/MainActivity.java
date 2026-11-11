@@ -1,22 +1,34 @@
-package com.emerson.piano;
+package com.ebisoft.doremmi;
 
+import android.graphics.Color;
+import android.media.AudioAttributes;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.media.SoundPool;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnTouchListener;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
+
 import java.io.IOException;
+import java.util.HashMap;
 
-public class FreeStyleActivity extends PianoBaseActivity implements View.OnTouchListener {
 
+public class MainActivity extends PianoBaseActivity implements OnTouchListener, View.OnClickListener {
+
+    ViewFlipper viewFlipper;
     ViewFlipper keyboardFlipper;
+    Button next;
+    Button previous;
+
     Button higher_octave;
     Button lower_octave;
+    int counter = 1;
     int keyboard_Counter = 1;
 
     Button recordButton;
@@ -25,6 +37,10 @@ public class FreeStyleActivity extends PianoBaseActivity implements View.OnTouch
     private MediaPlayer mediaPlayer;
     private MediaRecorder mediaRecorder;
     SoundPool soundPool;
+    SoundPool.Builder soundPoolBuilder;
+
+    AudioAttributes attributes;
+    AudioAttributes.Builder attributesBuilder;
 
     int soundID_C4;
     int soundID_Db4;
@@ -39,6 +55,8 @@ public class FreeStyleActivity extends PianoBaseActivity implements View.OnTouch
     int soundID_Bb4;
     int soundID_B4;
     int soundID_C5;
+    int soundID_Db51;
+    int soundID_D51;
 
     int soundID_C51;
     int soundID_Db5;
@@ -69,10 +87,11 @@ public class FreeStyleActivity extends PianoBaseActivity implements View.OnTouch
     int soundID_C41;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_free_style);
+        setContentView(R.layout.activity_main);
 
         Button ib1 = (Button)findViewById(R.id.C4);
         Button ib2 = (Button)findViewById(R.id.D4);
@@ -87,6 +106,8 @@ public class FreeStyleActivity extends PianoBaseActivity implements View.OnTouch
         Button ib11 = (Button)findViewById(R.id.Bb4);
         Button ib12 = (Button)findViewById(R.id.B4);
         Button ib13 = (Button)findViewById(R.id.C5);
+        Button ib40 = (Button)findViewById(R.id.Db51);
+        Button ib41 = (Button)findViewById(R.id.D51);
 
         //higher_octave
 
@@ -135,6 +156,8 @@ public class FreeStyleActivity extends PianoBaseActivity implements View.OnTouch
         soundID_Bb4 = soundPool.load(this, R.raw.bb4, 1);
         soundID_B4 = soundPool.load(this, R.raw.b4, 1);
         soundID_C5 = soundPool.load(this, R.raw.c5, 1);
+        soundID_Db51 = soundPool.load(this, R.raw.db5, 1);
+        soundID_D51 = soundPool.load(this, R.raw.d5, 1);
 
         //higher octave soundPool
 
@@ -181,6 +204,9 @@ public class FreeStyleActivity extends PianoBaseActivity implements View.OnTouch
         ib11.setOnTouchListener(this);
         ib12.setOnTouchListener(this);
         ib13.setOnTouchListener(this);
+        ib40.setOnTouchListener(this);
+        ib41.setOnTouchListener(this);
+
 
         //higher octave ontouch
         ib14.setOnTouchListener(this);
@@ -211,6 +237,12 @@ public class FreeStyleActivity extends PianoBaseActivity implements View.OnTouch
         ib37.setOnTouchListener(this);
         ib38.setOnTouchListener(this);
         ib39.setOnTouchListener(this);
+
+        viewFlipper = (ViewFlipper)findViewById(R.id.viewFlipper);
+        next = (Button)findViewById(R.id.next);
+        previous = (Button)findViewById(R.id.prev);
+        next.setOnClickListener(this);
+        previous.setOnClickListener(this);
 
         keyboardFlipper = (ViewFlipper)findViewById(R.id.viewFlipper_piano);
         higher_octave = (Button)findViewById(R.id.high_octave);
@@ -393,9 +425,38 @@ public class FreeStyleActivity extends PianoBaseActivity implements View.OnTouch
                 else if (action1 == MotionEvent.ACTION_POINTER_UP){
                     mediaPlayer.release();
                 }
+        }
+        else if (id == R.id.Db51) {
 
+                if(action == MotionEvent.ACTION_DOWN) {
+                    v.setPressed(true);
+                    soundPool.play(soundID_Db51, 1, 1, 0, 0, 1);
+                }
+                else if (action == MotionEvent.ACTION_UP){
+                    //mediaPlayer.release();
+                    v.setPressed(false);
+                }
+                else if (action1 == MotionEvent.ACTION_POINTER_UP){
+                    v.setPressed(false);
+                    mediaPlayer.release();
+                }
+        }
+        else if (id == R.id.D51) {
 
-            //upper octave
+                if(action == MotionEvent.ACTION_DOWN) {
+                    v.setPressed(true);
+                    soundPool.play(soundID_D51, 1, 1, 0, 0, 1);
+                }
+                else if (action == MotionEvent.ACTION_UP){
+                    //mediaPlayer.release();
+                    v.setPressed(false);
+                }
+                else if (action1 == MotionEvent.ACTION_POINTER_UP){
+                    v.setPressed(false);
+                    mediaPlayer.release();
+                }
+
+                //upper octave
         }
         else if (id == R.id.C51) {
 
@@ -739,6 +800,28 @@ public class FreeStyleActivity extends PianoBaseActivity implements View.OnTouch
 
         return true;
     }
+    @Override
+    public void onClick(View v) {
+        if (v == next){
+            counter++;
+            if( counter > 5){
+                //open next intent for next lesson
+                counter = 5;
+            }
+            else //if (counter <= 5 || counter >= 0)
+                viewFlipper.showNext();
+        }
+        else if (v == previous){
+            counter--;
+            if (counter <= 0){
+                //reopen current intent
+                counter = 1;
+
+            }else if ( counter >= 0)
+                viewFlipper.showPrevious();
+        }
+
+    }
 
     public void stop(){
         if(mediaPlayer != null){
@@ -761,7 +844,7 @@ public class FreeStyleActivity extends PianoBaseActivity implements View.OnTouch
             keyboard_Counter = 0;
         }
         else
-            keyboardFlipper.showPrevious();
+        keyboardFlipper.showPrevious();
     }
 
     public void record(View view){
@@ -775,7 +858,7 @@ public class FreeStyleActivity extends PianoBaseActivity implements View.OnTouch
         }
         else if (recordButton.getText().toString().equals("Stop")){
             stopRecord();
-            recordButton.setText("Record");
+            recordButton.setText("Play");
         }
         else if (recordButton.getText().toString().equals("Play")){
             try {
@@ -803,10 +886,12 @@ public class FreeStyleActivity extends PianoBaseActivity implements View.OnTouch
         recordingHelper.playRecording();
     }
 
-    public void playRecordButton(View view) throws IOException {
-        recordingHelper.playRecording();
-    }
 
+//    public void C4(View view){
+//        //stop();
+//        mediaPlayer = MediaPlayer.create(this, R.raw.c4);
+//        mediaPlayer.start();
+//    }
 
     @Override
     protected void onDestroy() {

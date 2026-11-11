@@ -1,34 +1,22 @@
-package com.emerson.piano;
+package com.ebisoft.doremmi;
 
-import android.content.Intent;
-import android.graphics.Color;
-import android.media.AudioAttributes;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.media.SoundPool;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnTouchListener;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
-
 import java.io.IOException;
-import java.util.HashMap;
 
-public class Lesson_1Activity extends PianoBaseActivity implements OnTouchListener, View.OnClickListener {
+public class FreeStyleActivity extends PianoBaseActivity implements View.OnTouchListener {
 
-    ViewFlipper viewFlipper;
     ViewFlipper keyboardFlipper;
-    Button next;
-    Button previous;
-
     Button higher_octave;
     Button lower_octave;
-    int counter = 1;
     int keyboard_Counter = 1;
 
     Button recordButton;
@@ -37,20 +25,6 @@ public class Lesson_1Activity extends PianoBaseActivity implements OnTouchListen
     private MediaPlayer mediaPlayer;
     private MediaRecorder mediaRecorder;
     SoundPool soundPool;
-    SoundPool.Builder soundPoolBuilder;
-
-    AudioAttributes attributes;
-    AudioAttributes.Builder attributesBuilder;
-
-    Button C4_lightable;
-    Button D4_lightable;
-    Button E4_lightable;
-    Button F4_lightable;
-    Button G4_lightable;
-    Button A4_lightable;
-    Button B4_lightable;
-    Button C5_lightable;
-
 
     int soundID_C4;
     int soundID_Db4;
@@ -65,8 +39,6 @@ public class Lesson_1Activity extends PianoBaseActivity implements OnTouchListen
     int soundID_Bb4;
     int soundID_B4;
     int soundID_C5;
-    int soundID_Db51;
-    int soundID_D51;
 
     int soundID_C51;
     int soundID_Db5;
@@ -97,11 +69,10 @@ public class Lesson_1Activity extends PianoBaseActivity implements OnTouchListen
     int soundID_C41;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lesson_1);
+        setContentView(R.layout.activity_free_style);
 
         Button ib1 = (Button)findViewById(R.id.C4);
         Button ib2 = (Button)findViewById(R.id.D4);
@@ -116,8 +87,6 @@ public class Lesson_1Activity extends PianoBaseActivity implements OnTouchListen
         Button ib11 = (Button)findViewById(R.id.Bb4);
         Button ib12 = (Button)findViewById(R.id.B4);
         Button ib13 = (Button)findViewById(R.id.C5);
-        Button ib40 = (Button)findViewById(R.id.Db51);
-        Button ib41 = (Button)findViewById(R.id.D51);
 
         //higher_octave
 
@@ -166,8 +135,6 @@ public class Lesson_1Activity extends PianoBaseActivity implements OnTouchListen
         soundID_Bb4 = soundPool.load(this, R.raw.bb4, 1);
         soundID_B4 = soundPool.load(this, R.raw.b4, 1);
         soundID_C5 = soundPool.load(this, R.raw.c5, 1);
-        soundID_Db51 = soundPool.load(this, R.raw.db5, 1);
-        soundID_D51 = soundPool.load(this, R.raw.d5, 1);
 
         //higher octave soundPool
 
@@ -214,9 +181,6 @@ public class Lesson_1Activity extends PianoBaseActivity implements OnTouchListen
         ib11.setOnTouchListener(this);
         ib12.setOnTouchListener(this);
         ib13.setOnTouchListener(this);
-        ib40.setOnTouchListener(this);
-        ib41.setOnTouchListener(this);
-
 
         //higher octave ontouch
         ib14.setOnTouchListener(this);
@@ -248,29 +212,12 @@ public class Lesson_1Activity extends PianoBaseActivity implements OnTouchListen
         ib38.setOnTouchListener(this);
         ib39.setOnTouchListener(this);
 
-        viewFlipper = (ViewFlipper)findViewById(R.id.viewFlipper);
-        next = (Button)findViewById(R.id.next);
-        previous = (Button)findViewById(R.id.prev);
-        next.setOnClickListener(this);
-        previous.setOnClickListener(this);
-
         keyboardFlipper = (ViewFlipper)findViewById(R.id.viewFlipper_piano);
         higher_octave = (Button)findViewById(R.id.high_octave);
         lower_octave = (Button)findViewById(R.id.low_octave);
 
         recordButton = (Button)findViewById(R.id.record);
         
-
-        //lightable keys
-        C4_lightable = (Button)findViewById(R.id.C4);
-        D4_lightable = (Button)findViewById(R.id.D4);
-        E4_lightable = (Button)findViewById(R.id.E4);
-        F4_lightable = (Button)findViewById(R.id.F4);
-        G4_lightable = (Button)findViewById(R.id.G4);
-        A4_lightable = (Button)findViewById(R.id.A4);
-        B4_lightable = (Button)findViewById(R.id.B4);
-        C5_lightable = (Button)findViewById(R.id.C5);
-
 
     }
 
@@ -446,36 +393,7 @@ public class Lesson_1Activity extends PianoBaseActivity implements OnTouchListen
                 else if (action1 == MotionEvent.ACTION_POINTER_UP){
                     mediaPlayer.release();
                 }
-        }
-        else if (id == R.id.Db51) {
 
-                if(action == MotionEvent.ACTION_DOWN) {
-                    v.setPressed(true);
-                    soundPool.play(soundID_Db51, 1, 1, 0, 0, 1);
-                }
-                else if (action == MotionEvent.ACTION_UP){
-                    //mediaPlayer.release();
-                    v.setPressed(false);
-                }
-                else if (action1 == MotionEvent.ACTION_POINTER_UP){
-                    v.setPressed(false);
-                    mediaPlayer.release();
-                }
-        }
-        else if (id == R.id.D51) {
-
-                if(action == MotionEvent.ACTION_DOWN) {
-                    v.setPressed(true);
-                    soundPool.play(soundID_D51, 1, 1, 0, 0, 1);
-                }
-                else if (action == MotionEvent.ACTION_UP){
-                    //mediaPlayer.release();
-                    v.setPressed(false);
-                }
-                else if (action1 == MotionEvent.ACTION_POINTER_UP){
-                    v.setPressed(false);
-                    mediaPlayer.release();
-                }
 
             //upper octave
         }
@@ -821,113 +739,6 @@ public class Lesson_1Activity extends PianoBaseActivity implements OnTouchListen
 
         return true;
     }
-    @Override
-    public void onClick(View v) {
-        if (v == next){
-            counter++;
-            if( counter > 35){
-                //open next intent for next lesson
-                counter = 35;
-//                Intent intent = new Intent(this, Lesson2Game.class);
-//                startActivity(intent);
-            }
-            else //if (counter <= 5 || counter >= 0)
-                viewFlipper.showNext();
-
-            //light up keys
-            switch (counter){
-
-                case 8:
-                    C4_lightable.setBackgroundResource(R.drawable.red_key);
-                    break;
-                case 9:
-                    C4_lightable.setBackgroundResource(R.drawable.white_selector);
-                    D4_lightable.setBackgroundResource(R.drawable.red_key);
-                    break;
-                case 10:
-                    D4_lightable.setBackgroundResource(R.drawable.white_selector);
-                    E4_lightable.setBackgroundResource(R.drawable.red_key);
-                    break;
-                case 11:
-                    E4_lightable.setBackgroundResource(R.drawable.white_selector);
-                    F4_lightable.setBackgroundResource(R.drawable.red_key);
-                    break;
-                case 12:
-                F4_lightable.setBackgroundResource(R.drawable.white_selector);
-                G4_lightable.setBackgroundResource(R.drawable.red_key);
-                break;
-                case 13:
-                    G4_lightable.setBackgroundResource(R.drawable.white_selector);
-                    A4_lightable.setBackgroundResource(R.drawable.red_key);
-                    break;
-                case 14:
-                    A4_lightable.setBackgroundResource(R.drawable.white_selector);
-                    B4_lightable.setBackgroundResource(R.drawable.red_key);
-                    break;
-                case 15:
-                    B4_lightable.setBackgroundResource(R.drawable.white_selector);
-                    C5_lightable.setBackgroundResource(R.drawable.red_key);
-                    break;
-                case 16:
-                    C5_lightable.setBackgroundResource(R.drawable.white_selector);
-                    break;
-            }
-            if (counter == 35){
-                mediaPlayer = MediaPlayer.create(this, R.raw.clap1);
-                mediaPlayer.start();
-            }
-
-        }
-        else if (v == previous){
-            counter--;
-            if (counter <= 0){
-                //reopen current intent
-                counter = 1;
-
-            }else if ( counter >= 0)
-                viewFlipper.showPrevious();
-
-            //light up key c
-            switch (counter){
-
-                case 7:
-                    C4_lightable.setBackgroundResource(R.drawable.white_selector);
-                    break;
-                case 8:
-                    C4_lightable.setBackgroundResource(R.drawable.red_key);
-                    D4_lightable.setBackgroundResource(R.drawable.white_selector);
-                    break;
-                case 9:
-                    D4_lightable.setBackgroundResource(R.drawable.red_key);
-                    E4_lightable.setBackgroundResource(R.drawable.white_selector);
-                    break;
-                case 10:
-                    E4_lightable.setBackgroundResource(R.drawable.red_key);
-                    F4_lightable.setBackgroundResource(R.drawable.white_selector);
-                    break;
-                case 11:
-                    F4_lightable.setBackgroundResource(R.drawable.red_key);
-                    G4_lightable.setBackgroundResource(R.drawable.white_selector);
-                    break;
-                case 12:
-                    G4_lightable.setBackgroundResource(R.drawable.red_key);
-                    A4_lightable.setBackgroundResource(R.drawable.white_selector);
-                    break;
-                case 13:
-                    A4_lightable.setBackgroundResource(R.drawable.red_key);
-                    B4_lightable.setBackgroundResource(R.drawable.white_selector);
-                    break;
-                case 14:
-                    B4_lightable.setBackgroundResource(R.drawable.red_key);
-                    C5_lightable.setBackgroundResource(R.drawable.white_selector);
-                    break;
-                case 15:
-                    C5_lightable.setBackgroundResource(R.drawable.red_key);
-                    break;
-            }
-        }
-
-    }
 
     public void stop(){
         if(mediaPlayer != null){
@@ -964,7 +775,7 @@ public class Lesson_1Activity extends PianoBaseActivity implements OnTouchListen
         }
         else if (recordButton.getText().toString().equals("Stop")){
             stopRecord();
-            recordButton.setText("Play");
+            recordButton.setText("Record");
         }
         else if (recordButton.getText().toString().equals("Play")){
             try {
@@ -992,12 +803,10 @@ public class Lesson_1Activity extends PianoBaseActivity implements OnTouchListen
         recordingHelper.playRecording();
     }
 
+    public void playRecordButton(View view) throws IOException {
+        recordingHelper.playRecording();
+    }
 
-//    public void C4(View view){
-//        //stop();
-//        mediaPlayer = MediaPlayer.create(this, R.raw.c4);
-//        mediaPlayer.start();
-//    }
 
     @Override
     protected void onDestroy() {
