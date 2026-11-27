@@ -1,0 +1,4 @@
+<resources>
+    <item name="piano_height_percent" format="float" type="dimen">0.3</item>
+    <item name="free_play_piano_height_percent" format="float" type="dimen">0.4</item>
+</resources>

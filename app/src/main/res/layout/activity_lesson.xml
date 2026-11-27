@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LessonActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <include
+            layout="@layout/view_piano_controls"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="@dimen/space_s" />
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/lesson_progress"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:max="1000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:trackCornerRadius="2dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/step_previous"
+        style="@style/Widget.Doremmi.Button.IconLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_s"
+        android:contentDescription="@string/action_previous"
+        app:icon="@drawable/ic_chevron_left"
+        app:layout_constraintBottom_toBottomOf="@id/step_pager"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/step_pager" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/step_pager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/space_s"
+        app:layout_constraintBottom_toTopOf="@id/guided_hint"
+        app:layout_constraintEnd_toStartOf="@id/step_next"
+        app:layout_constraintStart_toEndOf="@id/step_previous"
+        app:layout_constraintTop_toBottomOf="@id/lesson_progress" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/step_next"
+        style="@style/Widget.Doremmi.Button.IconLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/space_s"
+        android:contentDescription="@string/action_next"
+        app:icon="@drawable/ic_chevron_right"
+        app:layout_constraintBottom_toBottomOf="@id/step_pager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/step_pager" />
+
+    <TextView
+        android:id="@+id/guided_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/space_xs"
+        android:accessibilityLiveRegion="polite"
+        android:background="@drawable/bg_pill"
+        android:paddingHorizontal="@dimen/space_m"
+        android:paddingVertical="@dimen/space_xs"
+        android:text="@string/lesson_guided_hint"
+        android:textAppearance="?attr/textAppearanceLabelLarge"
+        android:textColor="?attr/colorOnSecondaryContainer"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/piano"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="visible" />
+
+    <com.ebisoft.doremmi.piano.PianoKeyboardView
+        android:id="@+id/piano"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="@dimen/piano_height_percent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

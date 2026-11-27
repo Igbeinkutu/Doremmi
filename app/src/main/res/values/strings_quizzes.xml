@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="quiz_name_that_note">Name That Note</string>
+    <string name="quiz_name_that_note_desc">Recognise note values by their shape</string>
+    <string name="quiz_note_maths">Note Maths</string>
+    <string name="quiz_note_maths_desc">How many of one note fit into another?</string>
+    <string name="quiz_identify_note">Identify That Note</string>
+    <string name="quiz_identify_note_desc">Read notes on the treble and bass staff</string>
+    <string name="quiz_word_match">Find the Matching Word</string>
+    <string name="quiz_word_match_desc">Spell words with notes on the staff</string>
+    <string name="quiz_lesson1">Lesson 1 Quiz</string>
+    <string name="quiz_lesson1_desc">Check what you learned before Lesson 2</string>
+
+    <string name="prompt_note_value">What is this note called?</string>
+    <string name="prompt_note_maths">How many notes go in the box?</string>
+    <string name="prompt_identify_note">Which note is this?</string>
+    <string name="prompt_word_match">Which word do these notes spell?</string>
+
+    <string name="note_semibreve">Semibreve</string>
+    <string name="note_minim">Minim</string>
+    <string name="note_crotchet">Crotchet</string>
+    <string name="note_quarter">Quarter note</string>
+    <string name="note_quaver">Quaver</string>
+    <string name="note_semiquaver">Semiquaver</string>
+    <string name="note_demisemiquaver">Demisemiquaver</string>
+</resources>

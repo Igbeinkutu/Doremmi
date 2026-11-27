@@ -1,5 +1,41 @@
 <resources>
-    <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">5dp</dimen>
-    <dimen name="activity_vertical_margin">5dp</dimen>
+    <!-- Spacing scale -->
+    <dimen name="space_xs">4dp</dimen>
+    <dimen name="space_s">8dp</dimen>
+    <dimen name="space_m">16dp</dimen>
+    <dimen name="space_l">24dp</dimen>
+    <dimen name="screen_padding">16dp</dimen>
+    <dimen name="content_max_width">720dp</dimen>
+    <dimen name="home_max_width">1040dp</dimen>
+
+    <!-- Touch targets and controls -->
+    <dimen name="touch_target">48dp</dimen>
+    <dimen name="button_height">56dp</dimen>
+    <dimen name="option_height">56dp</dimen>
+    <dimen name="step_nav_button">56dp</dimen>
+    <dimen name="tile_icon">40dp</dimen>
+    <dimen name="tile_icon_container">64dp</dimen>
+    <dimen name="tile_min_height">132dp</dimen>
+    <dimen name="list_icon_container">48dp</dimen>
+    <dimen name="result_icon">48dp</dimen>
+    <dimen name="timer_size">40dp</dimen>
+    <dimen name="quiz_notation_height">200dp</dimen>
+    <dimen name="card_selected_stroke">2dp</dimen>
+
+    <!-- Text sizes (sp so they follow the system font scale) -->
+    <dimen name="text_display">32sp</dimen>
+    <dimen name="text_headline">24sp</dimen>
+    <dimen name="text_title">18sp</dimen>
+    <dimen name="text_body">16sp</dimen>
+    <dimen name="text_caption">14sp</dimen>
+    <dimen name="text_button">16sp</dimen>
+    <dimen name="text_option">18sp</dimen>
+    <dimen name="lesson_text_min">14sp</dimen>
+    <dimen name="lesson_text_max">28sp</dimen>
+
+    <!-- Piano -->
+    <item name="piano_height_percent" format="float" type="dimen">0.42</item>
+    <item name="free_play_piano_height_percent" format="float" type="dimen">0.7</item>
+    <dimen name="piano_label_text">12sp</dimen>
+    <dimen name="piano_min_white_key_width">28dp</dimen>
 </resources>

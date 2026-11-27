@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Widget.Doremmi.Card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/space_s"
+    app:strokeColor="?attr/colorPrimary">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="64dp"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/space_m"
+        android:paddingVertical="@dimen/space_s">
+
+        <FrameLayout
+            android:layout_width="@dimen/list_icon_container"
+            android:layout_height="@dimen/list_icon_container"
+            android:background="@drawable/bg_icon_circle">
+
+            <ImageView
+                android:id="@+id/song_icon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_music_note"
+                app:tint="?attr/colorOnSecondaryContainer" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_m"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/song_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.Doremmi.Title"
+                android:textColor="?attr/colorOnSurface"
+                tools:text="Für Elise" />
+
+            <TextView
+                android:id="@+id/song_composer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.Doremmi.Caption"
+                android:textColor="?attr/colorOnSurfaceVariant"
+                tools:text="Ludwig van Beethoven" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/song_state"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="@dimen/space_s"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_play"
+            app:tint="?attr/colorPrimary" />
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

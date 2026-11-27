@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/piano_controls"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/octave_down"
+        style="@style/Widget.Doremmi.Button.Icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/octave_down"
+        app:icon="@drawable/ic_remove" />
+
+    <TextView
+        android:id="@+id/octave_range"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="72dp"
+        android:gravity="center"
+        android:textAppearance="?attr/textAppearanceLabelLarge"
+        android:accessibilityLiveRegion="polite" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/octave_up"
+        style="@style/Widget.Doremmi.Button.Icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/octave_up"
+        app:icon="@drawable/ic_add" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/record"
+        style="@style/Widget.Material3.Button.TonalButton.Icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_s"
+        android:minHeight="@dimen/touch_target"
+        android:text="@string/record"
+        app:icon="@drawable/ic_mic" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/play_recording"
+        style="@style/Widget.Doremmi.Button.Icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_xs"
+        android:contentDescription="@string/record_play"
+        app:icon="@drawable/ic_play" />
+</LinearLayout>
